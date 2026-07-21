@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Eclat - Event Planning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Language Toggle Script -->
+    <script>
+        const translations = {
+            es: {
+                nav_about: "Quiénes somos",
+                nav_process: "Cómo trabajamos",
+                nav_services: "Servicios",
+                nav_contact: "Contacto",
+                hero_title: "Diseñamos eventos que cuentan tu historia",
+                hero_subtitle: "Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.",
+                hero_button: "Explorar",
+                about_title: "Quienes somos",
+                about_text: "Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.",
+                feature1_title: "Atención personalizada",
+                feature1_text: "Cada proyecto es único y se adapta completamente a tus necesidades.",
+                feature2_title: "Cuidamos cada detalle",
+                feature2_text: "Desde la primera idea hasta el último brindis, todo está pensado con mimo.",
+                feature3_title: "Compromiso y confianza",
+                feature3_text: "Te acompañamos durante todo el proceso para que solo tengas que disfrutar.",
+                process_subtitle: "CÓMO TRABAJAMOS",
+                process_title: "Un proceso pensado para que disfrutes cada momento",
+                process_text: "Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana, personalizada y acompañarte de principio a fin.",
+                step1_title: "Primera reunión",
+                step1_text: "Nos conocemos, escuchamos vuestra historia y descubrimos cómo imagináis vuestro evento.",
+                step2_title: "Planificación",
+                step2_text: "Diseñamos la propuesta, seleccionamos proveedores y organizamos cada detalle.",
+                step3_title: "Coordinación",
+                step3_text: "Supervisamos cada fase del proceso para garantizar que todo salga según lo previsto.",
+                step4_title: "El gran día",
+                step4_text: "Nos encargamos de toda la coordinación para que solo tengáis que disfrutar.",
+                footer_text: "Nos encantará conocer vuestra historia y acompañaros en la creación de un evento único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.",
+                contact_instagram: "Instagram",
+                contact_whatsapp: "WhatsApp",
+                contact_email: "Correo electrónico",
+                contact_web: "Página web",
+                contact_subtitle: "CONTÁCTANOS",
+                contact_title: "¿Listo para crear tu evento perfecto?",
+                contact_subtitle_text: "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
+                contact_button: "Enviar mensaje"
+            },
+            en: {
+                nav_about: "About Us",
+                nav_process: "How We Work",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                hero_title: "We design events that tell your story",
+                hero_subtitle: "We transform your ideas into exclusive experiences, taking care of every detail so you can enjoy a unique and unforgettable day.",
+                hero_button: "Explore",
+                about_title: "Who We Are",
+                about_text: "We are a passionate team dedicated to creating unique and meaningful events. We believe every celebration deserves close, careful, and completely personalized planning, where every detail reflects the essence of those who live it. We work with professionalism, commitment, and transparency so you can enjoy the process with complete peace of mind. Our goal is not just to organize an event, but to design an experience you will remember for a lifetime.",
+                feature1_title: "Personalized Attention",
+                feature1_text: "Each project is unique and adapts completely to your needs.",
+                feature2_title: "We Care for Every Detail",
+                feature2_text: "From the first idea to the last toast, everything is thoughtfully planned.",
+                feature3_title: "Commitment and Trust",
+                feature3_text: "We accompany you throughout the process so you only have to enjoy.",
+                process_subtitle: "HOW WE WORK",
+                process_title: "A process designed for you to enjoy every moment",
+                process_text: "We work with a limited number of events each season to offer close, personalized attention and accompany you from start to finish.",
+                step1_title: "First Meeting",
+                step1_text: "We meet, listen to your story, and discover how you imagine your event.",
+                step2_title: "Planning",
+                step2_text: "We design the proposal, select vendors, and organize every detail.",
+                step3_title: "Coordination",
+                step3_text: "We supervise every phase of the process to ensure everything goes as planned.",
+                step4_title: "The Big Day",
+                step4_text: "We handle all the coordination so you only have to enjoy.",
+                footer_text: "We would love to know your story and accompany you in creating a unique and unforgettable event. Get in touch with us and let's make it happen.",
+                contact_instagram: "Instagram",
+                contact_whatsapp: "WhatsApp",
+                contact_email: "Email",
+                contact_web: "Website",
+                contact_subtitle: "CONTACT US",
+                contact_title: "Ready to create your perfect event?",
+                contact_subtitle_text: "Fill out the form and we'll get in touch with you as soon as possible.",
+                contact_button: "Send message"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateContent();
+            document.getElementById('lang-text').textContent = currentLang.toUpperCase();
+        }
+
+        function updateContent() {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Scroll Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Make hero section visible immediately
+            document.querySelector('.hero-section').style.opacity = '1';
+            document.querySelector('.hero-section').style.transform = 'translateY(0)';
+        });
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <img src="Eclat-Logo.png" alt="Éclat">
+
+        <ul class="links">
+            <li><a href="#about" data-lang="nav_about">Quiénes somos</a></li>
+            <li><a href="#process" data-lang="nav_process">Cómo trabajamos</a></li>
+            <li><a href="#services" data-lang="nav_services">Servicios</a></li>
+            <li><a href="#contact" data-lang="nav_contact">Contacto</a></li>
+        </ul>
+
+        <div class="navbar-controls">
+            <button class="toggle-btn" onclick="toggleLanguage()">
+                <i class="fa-solid fa-globe"></i>
+                <span id="lang-text">ES</span>
+            </button>
+            <button class="toggle-btn" onclick="toggleDarkMode()">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!----HERO----->
+<section class="hero-section">
+    <div class="hero-background">
+        <img src="blue-smoky-art-abstract-background.jpg" alt="Diseño de eventos exclusivos">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="about">
+        <h1 data-lang="hero_title">Diseñamos eventos que cuentan tu historia</h1>
+        <h4 data-lang="hero_subtitle">Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.</h4>
+        <button data-lang="hero_button">Explorar</button>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h1 data-lang="about_title">Quienes somos</h1>
+            <p data-lang="about_text">Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="features-section">
+        <div class="cartas-uno">
+            <h1 data-lang="feature1_title">Atención personalizada</h1>
+            <p data-lang="feature1_text">Cada proyecto es único y se adapta completamente a tus necesidades.</p>
+        </div>
+        <div class="cartas-dos">
+            <h1 data-lang="feature2_title">Cuidamos cada detalle</h1>
+            <p data-lang="feature2_text">Desde la primera idea hasta el último brindis, todo está pensado con mimo.</p>
+        </div>
+        <div class="cartas-tres">
+            <h1 data-lang="feature3_title">Compromiso y confianza</h1>
+            <p data-lang="feature3_text">Te acompañamos durante todo el proceso para que solo tengas que disfrutar.</p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="section-title">
+            <span data-lang="process_subtitle">CÓMO TRABAJAMOS</span>
+            <h2 data-lang="process_title">Un proceso pensado para que disfrutes cada momento</h2>
+            <p data-lang="process_text">
+                Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana, personalizada y acompañarte de principio a fin.
+            </p>
+        </div>
+
+        <div class="process-container">
+            <div class="step">
+                <div class="number">01</div>
+                <h3 data-lang="step1_title">Primera reunión</h3>
+                <p data-lang="step1_text">
+                    Nos conocemos, escuchamos vuestra historia y descubrimos cómo imagináis vuestro evento.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">02</div>
+                <h3 data-lang="step2_title">Planificación</h3>
+                <p data-lang="step2_text">
+                    Diseñamos la propuesta, seleccionamos proveedores y organizamos cada detalle.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">03</div>
+                <h3 data-lang="step3_title">Coordinación</h3>
+                <p data-lang="step3_text">
+                    Supervisamos cada fase del proceso para garantizar que todo salga según lo previsto.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">04</div>
+                <h3 data-lang="step4_title">El gran día</h3>
+                <p data-lang="step4_text">
+                    Nos encargamos de toda la coordinación para que solo tengáis que disfrutar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-title">
+            <span data-lang="contact_subtitle">CONTÁCTANOS</span>
+            <h2 data-lang="contact_title">¿Listo para crear tu evento perfecto?</h2>
+            <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+        </div>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Teléfono" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
+            </div>
+            <button type="submit" data-lang="contact_button">Enviar mensaje</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
+            <div class="contact-cards">
+                <a href="https://www.instagram.com/eventos_eclat.oficial/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class="fa-brands fa-instagram"></i>
+                    <h3 data-lang="contact_instagram">Instagram</h3>
+                    <p>@eventos_eclat.oficial</p>
+                </a>
+
+                <a href="https://wa.me/34602719265" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3 data-lang="contact_whatsapp">WhatsApp</h3>
+                    <p>+34 602 719 265</p>
+                </a>
+
+                <a href="mailto:info@eventoseclat.com" class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h3 data-lang="contact_email">Correo electrónico</h3>
+                    <p>info@eventoseclat.com</p>
+                </a>
+
+                <a href="https://eventoseclat.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3 data-lang="contact_web">Página web</h3>
+                    <p>eventoseclat.com</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            document.querySelector('.hero-section').style.opacity = '1';
+            document.querySelector('.hero-section').style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
