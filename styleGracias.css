@@ -1,0 +1,56 @@
+.thanks {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background: #F8F6F2;
+    font-family: "Poppins", sans-serif;
+}
+
+.thanks h1 {
+
+    font-size: 3rem;
+
+    color: #2F2F2F;
+
+    margin-bottom: 25px;
+}
+
+.thanks p {
+
+    max-width: 650px;
+
+    color: #6D6D6D;
+
+
+    font-family: "Poppins", sans-serif;
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+}
+
+
+.btn {
+
+    padding: 15px 35px;
+
+    background: #C8A97E;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    transition: .3s;
+}
+
+.btn:hover {
+
+    background: #A8865B;
+
+    transform: translateY(-3px);
+}
