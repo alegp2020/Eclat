@@ -122,9 +122,9 @@
         }
 
         // Scroll Animation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -168,24 +168,29 @@
     </nav>
 
     <!----HERO----->
-<section class="hero-section">
-    <div class="hero-background">
-        <img src="blue-smoky-art-abstract-background.jpg" alt="Diseño de eventos exclusivos">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="about">
-        <h1 data-lang="hero_title">Diseñamos eventos que cuentan tu historia</h1>
-        <h4 data-lang="hero_subtitle">Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.</h4>
-        <button data-lang="hero_button">Explorar</button>
-    </div>
-</section>
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="blue-smoky-art-abstract-background.jpg" alt="Diseño de eventos exclusivos">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="about">
+            <h1 data-lang="hero_title">Diseñamos eventos que cuentan tu historia</h1>
+            <h4 data-lang="hero_subtitle">Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para
+                que disfrutes de un día único e irrepetible.</h4>
+            <button data-lang="hero_button">Explorar</button>
+        </div>
+    </section>
 
 
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="about-content">
             <h1 data-lang="about_title">Quienes somos</h1>
-            <p data-lang="about_text">Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.</p>
+            <p data-lang="about_text">Somos un equipo apasionado por crear eventos únicos y llenos de significado.
+                Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde
+                cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y
+                transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo
+                organizar un evento, sino diseñar una experiencia que recordarás toda la vida.</p>
         </div>
     </section>
 
@@ -211,7 +216,8 @@
             <span data-lang="process_subtitle">CÓMO TRABAJAMOS</span>
             <h2 data-lang="process_title">Un proceso pensado para que disfrutes cada momento</h2>
             <p data-lang="process_text">
-                Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana, personalizada y acompañarte de principio a fin.
+                Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana,
+                personalizada y acompañarte de principio a fin.
             </p>
         </div>
 
@@ -255,31 +261,50 @@
         <div class="section-title">
             <span data-lang="contact_subtitle">CONTÁCTANOS</span>
             <h2 data-lang="contact_title">¿Listo para crear tu evento perfecto?</h2>
-            <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes
+                posible.</p>
         </div>
-        <form class="contact-form">
+        <form action="https://formsubmit.co/info@eventoseclat.com" method="POST" class="contact-form">
+
+            <!-- Configuración -->
+            <input type="hidden" name="_subject" value="Nueva solicitud desde la web de Eventos Éclat">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <!-- Página de gracias -->
+            <input type="hidden" name="_next" value="https://eventoseclat.vercel.app/gracias.html">
+
             <div class="form-group">
-                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="Nombre" placeholder="Nombre" required>
             </div>
+
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="Email" placeholder="Correo electrónico" required>
             </div>
+
             <div class="form-group">
-                <input type="tel" name="phone" placeholder="Teléfono" required>
+                <input type="tel" name="Teléfono" placeholder="Teléfono" required>
             </div>
+
             <div class="form-group">
-                <textarea name="message" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
+                <textarea name="Mensaje" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
             </div>
-            <button type="submit" data-lang="contact_button">Enviar mensaje</button>
+
+            <button type="submit">
+                Enviar mensaje
+            </button>
+
         </form>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
+            <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento
+                único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
             <div class="contact-cards">
-                <a href="https://www.instagram.com/eventos_eclat.oficial/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <a href="https://www.instagram.com/eventos_eclat.oficial/" target="_blank" rel="noopener noreferrer"
+                    class="contact-card">
                     <i class="fa-brands fa-instagram"></i>
                     <h3 data-lang="contact_instagram">Instagram</h3>
                     <p>@eventos_eclat.oficial</p>
@@ -312,9 +337,9 @@
             document.body.classList.toggle('dark-mode');
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -334,4 +359,5 @@
         });
     </script>
 </body>
+
 </html>
