@@ -665,7 +665,7 @@ footer h4 {
     text-align: center;
 }
 
-.contact-form {
+#contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -707,7 +707,7 @@ body.dark-mode .form-group textarea {
     min-height: 150px;
 }
 
-.contact-form button {
+#contact-form button {
     background: var(--gold);
     color: var(--white);
     border: none;
@@ -724,7 +724,7 @@ body.dark-mode .form-group textarea {
     overflow: hidden;
 }
 
-.contact-form button::before {
+#contact-form button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -735,11 +735,11 @@ body.dark-mode .form-group textarea {
     transition: var(--transition);
 }
 
-.contact-form button:hover::before {
+#contact-form button:hover::before {
     left: 100%;
 }
 
-.contact-form button:hover {
+#contact-form button:hover {
     background: var(--gold-dark);
     transform: translateY(-3px);
     box-shadow: var(--shadow-gold);
@@ -883,7 +883,7 @@ body.dark-mode .form-group textarea {
         font-size: 0.9rem;
     }
     
-    .contact-form button {
+    #contact-form button {
         padding: 0.8rem 2rem;
         font-size: 0.9rem;
     }

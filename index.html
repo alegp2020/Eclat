@@ -169,6 +169,8 @@
                 <i class="fa-solid fa-moon"></i>
             </button>
         </div>
+
+
     </nav>
 
     <!----HERO----->
@@ -305,30 +307,26 @@
             <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes
                 posible.</p>
         </div>
-        <form action="https://formsubmit.co/info@eventoseclat.com" method="POST" class="contact-form">
-
-            <!-- Configuración -->
-            <input type="hidden" name="_subject" value="Nueva solicitud desde la web de Eventos Éclat">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
+        <form id="contact-form">
 
             <!-- Página de gracias -->
             <input type="hidden" name="_next" value="https://eventoseclat.vercel.app/gracias.html">
 
             <div class="form-group">
-                <input type="text" name="Nombre" placeholder="Nombre" required>
+                <input type="text" name="nombre" placeholder="Nombre" required>
             </div>
 
             <div class="form-group">
-                <input type="email" name="Email" placeholder="Correo electrónico" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
             </div>
 
             <div class="form-group">
-                <input type="tel" name="Teléfono" placeholder="Teléfono" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+
             </div>
 
             <div class="form-group">
-                <textarea name="Mensaje" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
+                <textarea name="mensaje" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
             </div>
 
             <button type="submit">
@@ -403,6 +401,46 @@
 
                 navbar.style.backdropFilter = `blur(${blurAmount}px)`;
             });
+        });
+    </script>
+
+    <script>
+        const formulario = document.getElementById("contact-form");
+
+        formulario.addEventListener("submit", async (e) => {
+
+            e.preventDefault();
+
+            const datos = {
+                nombre: formulario.nombre.value,
+                email: formulario.email.value,
+                telefono: formulario.telefono.value,
+                mensaje: formulario.mensaje.value
+            };
+
+            try {
+
+                const respuesta = await fetch("https://backendeclatapp.onrender.com/api/solicitudes", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(datos)
+                });
+
+                const resultado = await respuesta.json();
+
+                alert(resultado.mensaje);
+
+                formulario.reset();
+
+            } catch (error) {
+
+                console.error(error);
+                alert("Ha ocurrido un error.");
+
+            }
+
         });
     </script>
 </body>
