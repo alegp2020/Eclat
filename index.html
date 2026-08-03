@@ -401,6 +401,18 @@
 
                 navbar.style.backdropFilter = `blur(${blurAmount}px)`;
             });
+
+            // Flip cards click functionality for mobile
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            if (isTouchDevice) {
+                const flipCards = document.querySelectorAll('.flip-card');
+                flipCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        this.classList.toggle('flipped');
+                    });
+                });
+            }
         });
     </script>
 
