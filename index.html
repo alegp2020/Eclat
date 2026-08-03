@@ -409,6 +409,13 @@
                 const flipCards = document.querySelectorAll('.flip-card');
                 flipCards.forEach(card => {
                     card.addEventListener('click', function() {
+                        // Cerrar todas las demás tarjetas
+                        flipCards.forEach(otherCard => {
+                            if (otherCard !== this) {
+                                otherCard.classList.remove('flipped');
+                            }
+                        });
+                        // Voltear la tarjeta seleccionada
                         this.classList.toggle('flipped');
                     });
                 });
