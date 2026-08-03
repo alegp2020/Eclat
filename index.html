@@ -307,10 +307,16 @@
             <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes
                 posible.</p>
         </div>
-        <form id="contact-form">
+        <form id="contact-form" action="https://formsubmit.co/info@eventoseclat.com" method="POST">
 
             <!-- Página de gracias -->
             <input type="hidden" name="_next" value="https://eventoseclat.vercel.app/gracias.html">
+
+            <!-- Evita el captcha -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Email de destino -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje del formulario de contacto Éclat">
 
             <div class="form-group">
                 <input type="text" name="nombre" placeholder="Nombre" required>
@@ -423,45 +429,6 @@
         });
     </script>
 
-    <script>
-        const formulario = document.getElementById("contact-form");
-
-        formulario.addEventListener("submit", async (e) => {
-
-            e.preventDefault();
-
-            const datos = {
-                nombre: formulario.nombre.value,
-                email: formulario.email.value,
-                telefono: formulario.telefono.value,
-                mensaje: formulario.mensaje.value
-            };
-
-            try {
-
-                const respuesta = await fetch("https://backendeclatapp.onrender.com/api/solicitudes", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(datos)
-                });
-
-                const resultado = await respuesta.json();
-
-                alert(resultado.mensaje);
-
-                formulario.reset();
-
-            } catch (error) {
-
-                console.error(error);
-                alert("Ha ocurrido un error.");
-
-            }
-
-        });
-    </script>
 </body>
 
 </html>
