@@ -25,8 +25,8 @@ body.dark-mode {
     --bg-light: #0A0A0A;
     --bg-cream: #141414;
     --text-dark: #FFFFFF;
-    --text-gray: #F0F0F0;
-    --text-light: #D0D0D0;
+    --text-gray: #E8E8E8;
+    --text-light: #C8C8C8;
     --white: #1A1A1A;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -36,7 +36,7 @@ body.dark-mode {
 body.dark-mode footer h4 {
     color: #FFFFFF;
     opacity: 1;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 body.dark-mode .contact-card {
@@ -50,7 +50,8 @@ body.dark-mode .contact-card h3 {
 }
 
 body.dark-mode .contact-card p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .contact-card i {
@@ -65,7 +66,7 @@ body.dark-mode .cartas-dos h1,
 body.dark-mode .cartas-tres h1,
 body.dark-mode .step h3 {
     color: #FFFFFF;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode .about-content p,
@@ -74,7 +75,8 @@ body.dark-mode .cartas-uno p,
 body.dark-mode .cartas-dos p,
 body.dark-mode .cartas-tres p,
 body.dark-mode .step p {
-    color: #F0F0F0;
+    color: #E8E8E8;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -246,7 +248,7 @@ body.dark-mode .navbar {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.75) 100%);
     z-index: 2;
 }
 
@@ -1092,4 +1094,7 @@ body.dark-mode .title {
     color: var(--gold);
 }
 
-
+body.dark-mode .links a {
+    color: #FFFFFF;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
