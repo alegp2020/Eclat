@@ -136,6 +136,30 @@ body.dark-mode .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.hamburger:hover {
+    color: var(--gold);
+}
+
+body.dark-mode .hamburger {
+    color: var(--text-dark);
+}
+
+body.dark-mode .hamburger:hover {
+    color: var(--gold);
+}
+
 /* Toggle Buttons */
 .navbar-controls {
     display: flex;
@@ -216,6 +240,43 @@ body.dark-mode .navbar {
 
 .links a:hover::before {
     width: 100%;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateY(-150%);
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        z-index: 999;
+    }
+
+    .links.active {
+        transform: translateY(0);
+    }
+
+    .links a {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        text-align: center;
+    }
+
+    body.dark-mode .links {
+        background: var(--white);
+        border-bottom: 1px solid var(--gold);
+    }
 }
 
 /* Hero Section */

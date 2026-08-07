@@ -239,6 +239,36 @@
             window.open(whatsappUrl, '_blank');
         }
 
+        // Mobile menu toggle
+        function toggleMenu() {
+            const links = document.querySelector('.links');
+            const hamburger = document.querySelector('.hamburger');
+            const icon = hamburger.querySelector('i');
+            
+            links.classList.toggle('active');
+            
+            if (links.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const links = document.querySelector('.links');
+                const hamburger = document.querySelector('.hamburger');
+                const icon = hamburger.querySelector('i');
+                
+                links.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
         // Scroll Animation
         document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
@@ -266,6 +296,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <img src="Eclat-Logo.png" alt="Éclat">
+
+        <button class="hamburger" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
         <ul class="links">
             <li><a href="#about" data-lang="nav_about">Quiénes somos</a></li>
