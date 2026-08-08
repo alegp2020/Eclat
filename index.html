@@ -248,9 +248,11 @@
             if (links.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                document.body.style.overflow = ''; // Restore scrolling
             }
         }
 
@@ -264,8 +266,68 @@
                 links.classList.remove('active');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                document.body.style.overflow = ''; // Restore scrolling
             });
         });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const links = document.querySelector('.links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (links.classList.contains('active') && 
+                !links.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Set minimum date for event date picker
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('fechaEvento');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+
+            // Cookie consent functionality
+            initCookieConsent();
+        });
+
+        // Cookie Consent Functions
+        function initCookieConsent() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            
+            if (!cookieConsent) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').classList.remove('show');
+            setCookie('cookie_consent', 'accepted', 365);
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookie-banner').classList.remove('show');
+            setCookie('cookie_consent', 'rejected', 365);
+        }
+
+        function showCookieSettings() {
+            window.open('/cookies', '_blank');
+        }
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = 'expires=' + date.toUTCString();
+            document.cookie = name + '=' + value + ';' + expires + ';path=/';
+        }
 
         // Scroll Animation
         document.addEventListener('DOMContentLoaded', function () {
@@ -319,6 +381,21 @@
 
 
     </nav>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>
+                Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra 
+                <a href="/cookies" target="_blank">Política de Cookies</a>.
+            </p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" onclick="acceptCookies()">Aceptar</button>
+                <button class="cookie-btn reject" onclick="rejectCookies()">Rechazar</button>
+                <button class="cookie-btn settings" onclick="showCookieSettings()">Configurar</button>
+            </div>
+        </div>
+    </div>
 
     <!----HERO----->
     <section class="hero-section">
@@ -639,9 +716,12 @@
 
             </div>
 
-            <div class="form-group">
-                <label for="fechaEvento">Fecha del evento</label>
-                <input type="date" id="fechaEvento" name="fechaEvento" required>
+            <div class="form-group date-group">
+                <label for="fechaEvento">
+                    <i class="fa-solid fa-calendar-alt"></i>
+                    <span>Fecha del evento</span>
+                </label>
+                <input type="date" id="fechaEvento" name="fechaEvento" required min="">
             </div>
 
             <div class="form-group">
@@ -665,8 +745,11 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento
-                único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
+            <div class="footer-message">
+                <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento
+                    único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
+            </div>
+
             <div class="contact-cards">
                 <a href="https://www.instagram.com/eventos_eclat.oficial/" target="_blank" rel="noopener noreferrer"
                     class="contact-card">
@@ -680,19 +763,25 @@
                     <h3 data-lang="contact_whatsapp">WhatsApp</h3>
                     <p>+34 602 719 265</p>
                 </a>
-                <a href="/politica-privacidad">Política de Privacidad</a> |
 
-                <a href="/aviso-legal">Aviso Legal</a> |
-
-                <a href="/cookies">Política de Cookies</a>
                 <a href="mailto:info@eventoseclat.com" class="contact-card">
                     <i class="fa-solid fa-envelope"></i>
                     <h3 data-lang="contact_email">Correo electrónico</h3>
                     <p>info@eventoseclat.com</p>
                 </a>
+            </div>
 
-
-
+            <div class="footer-legal">
+                <div class="legal-links">
+                    <a href="/politica-privacidad">Política de Privacidad</a>
+                    <span class="separator">|</span>
+                    <a href="/aviso-legal">Aviso Legal</a>
+                    <span class="separator">|</span>
+                    <a href="/cookies">Política de Cookies</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 Éclat Eventos. Todos los derechos reservados.</p>
+                </div>
             </div>
         </div>
     </footer>

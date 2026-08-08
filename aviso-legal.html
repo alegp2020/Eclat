@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal - Éclat Eventos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        .legal-page {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 5%;
+        }
+        
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .legal-header h1 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .legal-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        .legal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .legal-content h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold-light);
+        }
+        
+        .legal-content h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .legal-content p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+        
+        .legal-content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        
+        .legal-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        .legal-content a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-bottom: 2rem;
+        }
+        
+        .back-button:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+        
+        .update-date {
+            text-align: right;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .legal-page {
+                margin: 100px auto 40px;
+            }
+            
+            .legal-header,
+            .legal-content {
+                padding: 2rem;
+            }
+            
+            .legal-header h1 {
+                font-size: 2rem;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .legal-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-page">
+        <button class="back-button" onclick="window.history.back()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Volver
+        </button>
+        
+        <div class="legal-header">
+            <h1>Aviso Legal</h1>
+            <p>Última actualización: Agosto 2024</p>
+        </div>
+        
+        <div class="legal-content">
+            <h2>1. Datos Identificativos</h2>
+            <p>
+                <strong>Titular:</strong> Éclat Eventos<br>
+                <strong>Email:</strong> info@eventoseclat.com<br>
+                <strong>Teléfono:</strong> +34 602 719 265<br>
+                <strong>Instagram:</strong> @eventos_eclat.oficial
+            </p>
+            
+            <h2>2. Objeto</h2>
+            <p>El presente aviso legal regula el uso del sitio web https://eventoseclat.vercel.app/, propiedad de Éclat Eventos, dedicado a la organización y planificación de eventos exclusivos.</p>
+            
+            <h2>3. Condiciones de Uso</h2>
+            <p>El acceso y navegación por este sitio web implica la aceptación plena y sin reservas de las condiciones aquí descritas. El usuario se compromete a utilizar el sitio web de conformidad con la legislación vigente y el presente aviso legal.</p>
+            
+            <h2>4. Propiedad Intelectual</h2>
+            <p>Todos los contenidos de este sitio web (textos, imágenes, logotipos, diseños, software, etc.) son propiedad de Éclat Eventos o de terceros que han autorizado su uso.</p>
+            <p>Queda prohibida la reproducción, distribución, modificación o transformación de cualquier contenido sin el consentimiento expreso por escrito de Éclat Eventos.</p>
+            
+            <h2>5. Protección de Datos Personales</h2>
+            <p>Éclat Eventos cumple con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPD-GDD).</p>
+            <p>Para más información sobre el tratamiento de tus datos personales, consulta nuestra <a href="/politica-privacidad">Política de Privacidad</a>.</p>
+            
+            <h2>6. Uso de Cookies</h2>
+            <p>Este sitio web puede utilizar cookies para mejorar la experiencia del usuario. Para más información sobre el uso de cookies, consulta nuestra <a href="/cookies">Política de Cookies</a>.</p>
+            
+            <h2>7. Enlaces a Terceros</h2>
+            <p>Este sitio web puede contener enlaces a sitios web de terceros (Instagram, WhatsApp, FormSubmit, etc.). Éclat Eventos no controla estos sitios y no es responsable de sus contenidos o políticas de privacidad.</p>
+            <p>La inclusión de estos enlaces no implica aprobación ni recomendación de los contenidos o servicios ofrecidos por terceros.</p>
+            
+            <h2>8. Exclusión de Garantías y Responsabilidad</h2>
+            <p>Éclat Eventos no garantiza:</p>
+            <ul>
+                <li>La disponibilidad y continuidad del funcionamiento del sitio web</li>
+                <li>Que los contenidos del sitio web estén actualizados o sean exactos</li>
+                <li>La ausencia de virus o elementos dañinos en el sitio web</li>
+            </ul>
+            <p>Éclat Eventos no será responsable por los daños que pudieran derivarse del uso de este sitio web.</p>
+            
+            <h2>9. Legislación Aplicable y Jurisdicción</h2>
+            <p>Este aviso legal se rige por la legislación española. Para cualquier controversia que pudiera surgir, las partes se someten a los Juzgados y Tribunales de Madrid.</p>
+            
+            <h2>10. Modificaciones del Aviso Legal</h2>
+            <p>Éclat Eventos se reserva el derecho de modificar este aviso legal en cualquier momento. Se recomienda revisar periódicamente este aviso para estar informado sobre posibles cambios.</p>
+            
+            <h2>11. Contacto</h2>
+            <p>Para cualquier cuestión relacionada con este aviso legal, puedes contactarnos en:</p>
+            <p>
+                <strong>Email:</strong> info@eventoseclat.com<br>
+                <strong>Teléfono:</strong> +34 602 719 265
+            </p>
+            
+            <div class="update-date">
+                Última actualización: Agosto 2024
+            </div>
+        </div>
+    </div>
+</body>
+</html>
