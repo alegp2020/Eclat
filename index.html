@@ -1,847 +1,1084 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <title>Éclat</title>
-    <link rel="icon" type="image/png"  href="favicon_eventos_eclat_512.png">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="icon" type="image/png" href="favicon_eventos_eclat_512.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
-
+  <body>
     <!-- Language Toggle Script -->
     <script>
-        const translations = {
-            es: {
-                nav_about: "Quiénes somos",
-                nav_process: "Cómo trabajamos",
-                nav_services: "Servicios",
-                nav_plans: "Planes",
-                nav_contact: "Contacto",
-                hero_title: "Diseñamos eventos que cuentan tu historia",
-                hero_subtitle: "Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.",
-                hero_button: "Explorar",
-                about_title: "Quienes somos",
-                about_text: "Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.",
-                feature1_title: "Atención personalizada",
-                feature1_text: "Cada proyecto es único y se adapta completamente a tus necesidades.",
-                feature2_title: "Cuidamos cada detalle",
-                feature2_text: "Desde la primera idea hasta el último brindis, todo está pensado con mimo.",
-                feature3_title: "Compromiso y confianza",
-                feature3_text: "Te acompañamos durante todo el proceso para que solo tengas que disfrutar.",
-                process_subtitle: "CÓMO TRABAJAMOS",
-                process_title: "Un proceso pensado para que disfrutes cada momento",
-                process_text: "Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana, personalizada y acompañarte de principio a fin.",
-                step1_title: "Primera reunión",
-                step1_text: "Nos conocemos, escuchamos vuestra historia y descubrimos cómo imagináis vuestro evento.",
-                step2_title: "Planificación",
-                step2_text: "Diseñamos la propuesta, seleccionamos proveedores y organizamos cada detalle.",
-                step3_title: "Coordinación",
-                step3_text: "Supervisamos cada fase del proceso para garantizar que todo salga según lo previsto.",
-                step4_title: "El gran día",
-                step4_text: "Nos encargamos de toda la coordinación para que solo tengáis que disfrutar.",
-                services_subtitle: "NUESTROS SERVICIOS",
-                services_title: "Tipos de eventos que organizamos",
-                services_text: "Creamos experiencias únicas para todo tipo de celebraciones.",
-                service_weddings: "Bodas",
-                service_weddings_desc: "Bodas de lujo e íntimas con atención personalizada",
-                service_proposals: "Pedidas de mano",
-                service_proposals_desc: "Momentos especiales e inolvidables",
-                service_anniversaries: "Aniversarios",
-                service_anniversaries_desc: "Celebración de hitos importantes",
-                service_corporate: "Eventos corporativos",
-                service_corporate_desc: "Gala corporativa y eventos de negocios",
-                service_openings: "Aperturas de negocio",
-                service_openings_desc: "Lanzamientos e inauguraciones",
-                service_boutique: "Corporativo boutique",
-                service_boutique_desc: "Eventos exclusivos para marcas selectas",
-                service_jubilees: "Jubilaciones",
-                service_jubilees_desc: "Celebración de carreras profesionales",
-                service_communion: "Comuniones y bautizos",
-                service_communion_desc: "Eventos familiares significativos",
-                service_brands: "Marcas y productos",
-                service_brands_desc: "Presentaciones y lanzamientos",
-                service_timeline: "Línea del tiempo",
-                service_timeline_desc: "Eventos formales y ceremonias",
-                plans_subtitle: "NUESTROS PLANES",
-                plans_title: "Elige el plan perfecto para tu evento",
-                plans_text: "Ofrecemos diferentes opciones adaptadas a tus necesidades y presupuesto.",
-                plan_basic_title: "Básico",
-                plan_basic_desc: "Ideal para eventos pequeños y coordinación esencial",
-                plan_basic_feature1: "Coordinación del día del evento",
-                plan_basic_feature2: "1 reunión de planificación previa",
-                plan_basic_feature3: "Timeline del evento",
-                plan_basic_feature4: "Coordinación de proveedores básicos",
-                plan_basic_feature5: "Diseño conceptual",
-                plan_basic_feature6: "Búsqueda de proveedores",
-                plan_standard_title: "Estándar",
-                plan_standard_desc: "Perfecto para bodas y eventos de tamaño medio",
-                plan_standard_feature1: "Coordinación completa del evento",
-                plan_standard_feature2: "3 reuniones de planificación",
-                plan_standard_feature3: "Diseño conceptual del evento",
-                plan_standard_feature4: "Búsqueda y gestión de proveedores",
-                plan_standard_feature5: "Timeline detallado",
-                plan_standard_feature6: "Coordinación día del evento",
-                plan_premium_title: "Premium",
-                plan_premium_desc: "Experiencia completa para eventos exclusivos",
-                plan_premium_feature1: "Servicio de planeación completo",
-                plan_premium_feature2: "Reuniones ilimitadas",
-                plan_premium_feature3: "Diseño conceptual personalizado",
-                plan_premium_feature4: "Gestión premium de proveedores",
-                plan_premium_feature5: "Coordinación completa día del evento",
-                plan_premium_feature6: "Decoración y diseño personalizado",
-                plan_featured: "Más popular",
-                plan_button: "Seleccionar plan",
-                footer_text: "Nos encantará conocer vuestra historia y acompañaros en la creación de un evento único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.",
-                contact_instagram: "Instagram",
-                contact_whatsapp: "WhatsApp",
-                contact_email: "Correo electrónico",
-                contact_web: "Página web",
-                contact_subtitle: "CONTÁCTANOS",
-                contact_title: "¿Listo para crear tu evento perfecto?",
-                contact_subtitle_text: "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
-                contact_button: "Enviar mensaje"
-            },
-            en: {
-                nav_about: "About Us",
-                nav_process: "How We Work",
-                nav_services: "Services",
-                nav_plans: "Plans",
-                nav_contact: "Contact",
-                hero_title: "We design events that tell your story",
-                hero_subtitle: "We transform your ideas into exclusive experiences, taking care of every detail so you can enjoy a unique and unforgettable day.",
-                hero_button: "Explore",
-                about_title: "Who We Are",
-                about_text: "We are a passionate team dedicated to creating unique and meaningful events. We believe every celebration deserves close, careful, and completely personalized planning, where every detail reflects the essence of those who live it. We work with professionalism, commitment, and transparency so you can enjoy the process with complete peace of mind. Our goal is not just to organize an event, but to design an experience you will remember for a lifetime.",
-                feature1_title: "Personalized Attention",
-                feature1_text: "Each project is unique and adapts completely to your needs.",
-                feature2_title: "We Care for Every Detail",
-                feature2_text: "From the first idea to the last toast, everything is thoughtfully planned.",
-                feature3_title: "Commitment and Trust",
-                feature3_text: "We accompany you throughout the process so you only have to enjoy.",
-                process_subtitle: "HOW WE WORK",
-                process_title: "A process designed for you to enjoy every moment",
-                process_text: "We work with a limited number of events each season to offer close, personalized attention and accompany you from start to finish.",
-                step1_title: "First Meeting",
-                step1_text: "We meet, listen to your story, and discover how you imagine your event.",
-                step2_title: "Planning",
-                step2_text: "We design the proposal, select vendors, and organize every detail.",
-                step3_title: "Coordination",
-                step3_text: "We supervise every phase of the process to ensure everything goes as planned.",
-                step4_title: "The Big Day",
-                step4_text: "We handle all the coordination so you only have to enjoy.",
-                services_subtitle: "OUR SERVICES",
-                services_title: "Types of events we organize",
-                services_text: "We create unique experiences for all types of celebrations.",
-                service_weddings: "Weddings",
-                service_weddings_desc: "Luxury and intimate weddings with personalized attention",
-                service_proposals: "Proposals",
-                service_proposals_desc: "Special and unforgettable moments",
-                service_anniversaries: "Anniversaries",
-                service_anniversaries_desc: "Celebration of important milestones",
-                service_corporate: "Corporate events",
-                service_corporate_desc: "Corporate galas and business events",
-                service_openings: "Business openings",
-                service_openings_desc: "Launches and inaugurations",
-                service_boutique: "Boutique corporate",
-                service_boutique_desc: "Exclusive events for select brands",
-                service_jubilees: "Jubilees",
-                service_jubilees_desc: "Celebration of professional careers",
-                service_communion: "Communions and baptisms",
-                service_communion_desc: "Meaningful family events",
-                service_brands: "Brands and products",
-                service_brands_desc: "Presentations and launches",
-                service_timeline: "Timeline",
-                service_timeline_desc: "Formal events and ceremonies",
-                plans_subtitle: "OUR PLANS",
-                plans_title: "Choose the perfect plan for your event",
-                plans_text: "We offer different options adapted to your needs and budget.",
-                plan_basic_title: "Basic",
-                plan_basic_desc: "Ideal for small events and essential coordination",
-                plan_basic_feature1: "Event day coordination",
-                plan_basic_feature2: "1 pre-planning meeting",
-                plan_basic_feature3: "Event timeline",
-                plan_basic_feature4: "Basic vendor coordination",
-                plan_basic_feature5: "Conceptual design",
-                plan_basic_feature6: "Vendor search",
-                plan_standard_title: "Standard",
-                plan_standard_desc: "Perfect for weddings and medium-sized events",
-                plan_standard_feature1: "Complete event coordination",
-                plan_standard_feature2: "3 planning meetings",
-                plan_standard_feature3: "Event conceptual design",
-                plan_standard_feature4: "Vendor search and management",
-                plan_standard_feature5: "Detailed timeline",
-                plan_standard_feature6: "Event day coordination",
-                plan_premium_title: "Premium",
-                plan_premium_desc: "Complete experience for exclusive events",
-                plan_premium_feature1: "Complete planning service",
-                plan_premium_feature2: "Unlimited meetings",
-                plan_premium_feature3: "Custom conceptual design",
-                plan_premium_feature4: "Premium vendor management",
-                plan_premium_feature5: "Complete event day coordination",
-                plan_premium_feature6: "Custom decoration and design",
-                plan_featured: "Most popular",
-                plan_button: "Select plan",
-                footer_text: "We would love to know your story and accompany you in creating a unique and unforgettable event. Get in touch with us and let's make it happen.",
-                contact_instagram: "Instagram",
-                contact_whatsapp: "WhatsApp",
-                contact_email: "Email",
-                contact_web: "Website",
-                contact_subtitle: "CONTACT US",
-                contact_title: "Ready to create your perfect event?",
-                contact_subtitle_text: "Fill out the form and we'll get in touch with you as soon as possible.",
-                contact_button: "Send message"
-            }
-        };
+      const translations = {
+        es: {
+          nav_about: "Quiénes somos",
+          nav_process: "Cómo trabajamos",
+          nav_services: "Servicios",
+          nav_plans: "Planes",
+          nav_contact: "Contacto",
+          hero_title: "Diseñamos eventos que cuentan tu historia",
+          hero_subtitle:
+            "Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.",
+          hero_button: "Explorar",
+          about_title: "Quienes somos",
+          about_text:
+            "Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.",
+          feature1_title: "Atención personalizada",
+          feature1_text:
+            "Cada proyecto es único y se adapta completamente a tus necesidades.",
+          feature2_title: "Cuidamos cada detalle",
+          feature2_text:
+            "Desde la primera idea hasta el último brindis, todo está pensado con mimo.",
+          feature3_title: "Compromiso y confianza",
+          feature3_text:
+            "Te acompañamos durante todo el proceso para que solo tengas que disfrutar.",
+          process_subtitle: "CÓMO TRABAJAMOS",
+          process_title: "Un proceso pensado para que disfrutes cada momento",
+          process_text:
+            "Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana, personalizada y acompañarte de principio a fin.",
+          step1_title: "Primera reunión",
+          step1_text:
+            "Nos conocemos, escuchamos vuestra historia y descubrimos cómo imagináis vuestro evento.",
+          step2_title: "Planificación",
+          step2_text:
+            "Diseñamos la propuesta, seleccionamos proveedores y organizamos cada detalle.",
+          step3_title: "Coordinación",
+          step3_text:
+            "Supervisamos cada fase del proceso para garantizar que todo salga según lo previsto.",
+          step4_title: "El gran día",
+          step4_text:
+            "Nos encargamos de toda la coordinación para que solo tengáis que disfrutar.",
+          services_subtitle: "NUESTROS SERVICIOS",
+          services_title: "Tipos de eventos que organizamos",
+          services_text:
+            "Creamos experiencias únicas para todo tipo de celebraciones.",
+          service_weddings: "Bodas",
+          service_weddings_desc:
+            "Bodas de lujo e íntimas con atención personalizada",
+          service_proposals: "Pedidas de mano",
+          service_proposals_desc: "Momentos especiales e inolvidables",
+          service_anniversaries: "Aniversarios",
+          service_anniversaries_desc: "Celebración de hitos importantes",
+          service_corporate: "Eventos corporativos",
+          service_corporate_desc: "Gala corporativa y eventos de negocios",
+          service_openings: "Aperturas de negocio",
+          service_openings_desc: "Lanzamientos e inauguraciones",
+          service_boutique: "Corporativo boutique",
+          service_boutique_desc: "Eventos exclusivos para marcas selectas",
+          service_jubilees: "Jubilaciones",
+          service_jubilees_desc: "Celebración de carreras profesionales",
+          service_communion: "Comuniones y bautizos",
+          service_communion_desc: "Eventos familiares significativos",
+          service_brands: "Marcas y productos",
+          service_brands_desc: "Presentaciones y lanzamientos",
+          service_timeline: "Línea del tiempo",
+          service_timeline_desc: "Eventos formales y ceremonias",
+          plans_subtitle: "NUESTROS PLANES",
+          plans_title: "Elige el plan perfecto para tu evento",
+          plans_text:
+            "Ofrecemos diferentes opciones adaptadas a tus necesidades y presupuesto.",
+          plan_basic_title: "Básico",
+          plan_basic_desc:
+            "Ideal para eventos pequeños y coordinación esencial",
+          plan_basic_feature1: "Coordinación del día del evento",
+          plan_basic_feature2: "1 reunión de planificación previa",
+          plan_basic_feature3: "Timeline del evento",
+          plan_basic_feature4: "Coordinación de proveedores básicos",
+          plan_basic_feature5: "Diseño conceptual",
+          plan_basic_feature6: "Búsqueda de proveedores",
+          plan_standard_title: "Estándar",
+          plan_standard_desc: "Perfecto para bodas y eventos de tamaño medio",
+          plan_standard_feature1: "Coordinación completa del evento",
+          plan_standard_feature2: "3 reuniones de planificación",
+          plan_standard_feature3: "Diseño conceptual del evento",
+          plan_standard_feature4: "Búsqueda y gestión de proveedores",
+          plan_standard_feature5: "Timeline detallado",
+          plan_standard_feature6: "Coordinación día del evento",
+          plan_premium_title: "Premium",
+          plan_premium_desc: "Experiencia completa para eventos exclusivos",
+          plan_premium_feature1: "Servicio de planeación completo",
+          plan_premium_feature2: "Reuniones ilimitadas",
+          plan_premium_feature3: "Diseño conceptual personalizado",
+          plan_premium_feature4: "Gestión premium de proveedores",
+          plan_premium_feature5: "Coordinación completa día del evento",
+          plan_premium_feature6: "Decoración y diseño personalizado",
+          plan_featured: "Más popular",
+          plan_button: "Seleccionar plan",
+          footer_text:
+            "Nos encantará conocer vuestra historia y acompañaros en la creación de un evento único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.",
+          contact_instagram: "Instagram",
+          contact_whatsapp: "WhatsApp",
+          contact_email: "Correo electrónico",
+          contact_web: "Página web",
+          contact_subtitle: "CONTÁCTANOS",
+          contact_title: "¿Listo para crear tu evento perfecto?",
+          contact_subtitle_text:
+            "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
+          contact_button: "Enviar mensaje",
+        },
+        en: {
+          nav_about: "About Us",
+          nav_process: "How We Work",
+          nav_services: "Services",
+          nav_plans: "Plans",
+          nav_contact: "Contact",
+          hero_title: "We design events that tell your story",
+          hero_subtitle:
+            "We transform your ideas into exclusive experiences, taking care of every detail so you can enjoy a unique and unforgettable day.",
+          hero_button: "Explore",
+          about_title: "Who We Are",
+          about_text:
+            "We are a passionate team dedicated to creating unique and meaningful events. We believe every celebration deserves close, careful, and completely personalized planning, where every detail reflects the essence of those who live it. We work with professionalism, commitment, and transparency so you can enjoy the process with complete peace of mind. Our goal is not just to organize an event, but to design an experience you will remember for a lifetime.",
+          feature1_title: "Personalized Attention",
+          feature1_text:
+            "Each project is unique and adapts completely to your needs.",
+          feature2_title: "We Care for Every Detail",
+          feature2_text:
+            "From the first idea to the last toast, everything is thoughtfully planned.",
+          feature3_title: "Commitment and Trust",
+          feature3_text:
+            "We accompany you throughout the process so you only have to enjoy.",
+          process_subtitle: "HOW WE WORK",
+          process_title: "A process designed for you to enjoy every moment",
+          process_text:
+            "We work with a limited number of events each season to offer close, personalized attention and accompany you from start to finish.",
+          step1_title: "First Meeting",
+          step1_text:
+            "We meet, listen to your story, and discover how you imagine your event.",
+          step2_title: "Planning",
+          step2_text:
+            "We design the proposal, select vendors, and organize every detail.",
+          step3_title: "Coordination",
+          step3_text:
+            "We supervise every phase of the process to ensure everything goes as planned.",
+          step4_title: "The Big Day",
+          step4_text:
+            "We handle all the coordination so you only have to enjoy.",
+          services_subtitle: "OUR SERVICES",
+          services_title: "Types of events we organize",
+          services_text:
+            "We create unique experiences for all types of celebrations.",
+          service_weddings: "Weddings",
+          service_weddings_desc:
+            "Luxury and intimate weddings with personalized attention",
+          service_proposals: "Proposals",
+          service_proposals_desc: "Special and unforgettable moments",
+          service_anniversaries: "Anniversaries",
+          service_anniversaries_desc: "Celebration of important milestones",
+          service_corporate: "Corporate events",
+          service_corporate_desc: "Corporate galas and business events",
+          service_openings: "Business openings",
+          service_openings_desc: "Launches and inaugurations",
+          service_boutique: "Boutique corporate",
+          service_boutique_desc: "Exclusive events for select brands",
+          service_jubilees: "Jubilees",
+          service_jubilees_desc: "Celebration of professional careers",
+          service_communion: "Communions and baptisms",
+          service_communion_desc: "Meaningful family events",
+          service_brands: "Brands and products",
+          service_brands_desc: "Presentations and launches",
+          service_timeline: "Timeline",
+          service_timeline_desc: "Formal events and ceremonies",
+          plans_subtitle: "OUR PLANS",
+          plans_title: "Choose the perfect plan for your event",
+          plans_text:
+            "We offer different options adapted to your needs and budget.",
+          plan_basic_title: "Basic",
+          plan_basic_desc: "Ideal for small events and essential coordination",
+          plan_basic_feature1: "Event day coordination",
+          plan_basic_feature2: "1 pre-planning meeting",
+          plan_basic_feature3: "Event timeline",
+          plan_basic_feature4: "Basic vendor coordination",
+          plan_basic_feature5: "Conceptual design",
+          plan_basic_feature6: "Vendor search",
+          plan_standard_title: "Standard",
+          plan_standard_desc: "Perfect for weddings and medium-sized events",
+          plan_standard_feature1: "Complete event coordination",
+          plan_standard_feature2: "3 planning meetings",
+          plan_standard_feature3: "Event conceptual design",
+          plan_standard_feature4: "Vendor search and management",
+          plan_standard_feature5: "Detailed timeline",
+          plan_standard_feature6: "Event day coordination",
+          plan_premium_title: "Premium",
+          plan_premium_desc: "Complete experience for exclusive events",
+          plan_premium_feature1: "Complete planning service",
+          plan_premium_feature2: "Unlimited meetings",
+          plan_premium_feature3: "Custom conceptual design",
+          plan_premium_feature4: "Premium vendor management",
+          plan_premium_feature5: "Complete event day coordination",
+          plan_premium_feature6: "Custom decoration and design",
+          plan_featured: "Most popular",
+          plan_button: "Select plan",
+          footer_text:
+            "We would love to know your story and accompany you in creating a unique and unforgettable event. Get in touch with us and let's make it happen.",
+          contact_instagram: "Instagram",
+          contact_whatsapp: "WhatsApp",
+          contact_email: "Email",
+          contact_web: "Website",
+          contact_subtitle: "CONTACT US",
+          contact_title: "Ready to create your perfect event?",
+          contact_subtitle_text:
+            "Fill out the form and we'll get in touch with you as soon as possible.",
+          contact_button: "Send message",
+        },
+      };
 
-        let currentLang = 'es';
+      let currentLang = "es";
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            updateContent();
-            document.getElementById('lang-text').textContent = currentLang.toUpperCase();
-        }
+      function toggleLanguage() {
+        currentLang = currentLang === "es" ? "en" : "es";
+        updateContent();
+        document.getElementById("lang-text").textContent =
+          currentLang.toUpperCase();
+      }
 
-        function updateContent() {
-            document.querySelectorAll('[data-lang]').forEach(element => {
-                const key = element.getAttribute('data-lang');
-                if (translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
-                }
-            });
-        }
+      function updateContent() {
+        document.querySelectorAll("[data-lang]").forEach((element) => {
+          const key = element.getAttribute("data-lang");
+          if (translations[currentLang][key]) {
+            element.textContent = translations[currentLang][key];
+          }
+        });
+      }
     </script>
 
     <!-- Dark Mode Toggle Script -->
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+
+      // WhatsApp function
+      function openWhatsApp(plan) {
+        const phoneNumber = "34602719265"; // Replace with actual WhatsApp number (include country code)
+        const message = `Hola, estoy interesado en el plan ${plan} para mi evento.`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, "_blank");
+      }
+
+      // Mobile menu toggle
+      function toggleMenu() {
+        const links = document.querySelector(".links");
+        const hamburger = document.querySelector(".hamburger");
+        const icon = hamburger.querySelector("i");
+
+        links.classList.toggle("active");
+
+        if (links.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+          document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+      }
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const links = document.querySelector(".links");
+          const hamburger = document.querySelector(".hamburger");
+          const icon = hamburger.querySelector("i");
+
+          links.classList.remove("active");
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+          document.body.style.overflow = ""; // Restore scrolling
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        const links = document.querySelector(".links");
+        const hamburger = document.querySelector(".hamburger");
+
+        if (
+          links.classList.contains("active") &&
+          !links.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          toggleMenu();
+        }
+      });
+
+      // Set minimum date for event date picker
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateInput = document.getElementById("fechaEvento");
+        if (dateInput) {
+          const today = new Date().toISOString().split("T")[0];
+          dateInput.setAttribute("min", today);
         }
 
-        // WhatsApp function
-        function openWhatsApp(plan) {
-            const phoneNumber = '34602719265'; // Replace with actual WhatsApp number (include country code)
-            const message = `Hola, estoy interesado en el plan ${plan} para mi evento.`;
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+        // Cookie consent functionality
+        initCookieConsent();
+      });
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const links = document.querySelector('.links');
-            const hamburger = document.querySelector('.hamburger');
-            const icon = hamburger.querySelector('i');
-            
-            links.classList.toggle('active');
-            
-            if (links.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = ''; // Restore scrolling
-            }
-        }
+      // Cookie Consent Functions
+      function initCookieConsent() {
+        const cookieBanner = document.getElementById("cookie-banner");
+        const cookieConsent = localStorage.getItem("cookieConsent");
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const links = document.querySelector('.links');
-                const hamburger = document.querySelector('.hamburger');
-                const icon = hamburger.querySelector('i');
-                
-                links.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = ''; // Restore scrolling
+        if (!cookieConsent) {
+          setTimeout(() => {
+            cookieBanner.classList.add("show");
+          }, 1000);
+        }
+      }
+
+      function acceptCookies() {
+        localStorage.setItem("cookieConsent", "accepted");
+        document.getElementById("cookie-banner").classList.remove("show");
+        setCookie("cookie_consent", "accepted", 365);
+      }
+
+      function rejectCookies() {
+        localStorage.setItem("cookieConsent", "rejected");
+        document.getElementById("cookie-banner").classList.remove("show");
+        setCookie("cookie_consent", "rejected", 365);
+      }
+
+      function showCookieSettings() {
+        window.open("/cookies.html", "_blank");
+      }
+
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      }
+
+      // Scroll Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
             });
+          },
+          {
+            threshold: 0.1,
+          },
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const links = document.querySelector('.links');
-            const hamburger = document.querySelector('.hamburger');
-            
-            if (links.classList.contains('active') && 
-                !links.contains(e.target) && 
-                !hamburger.contains(e.target)) {
-                toggleMenu();
-            }
-        });
-
-        // Set minimum date for event date picker
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateInput = document.getElementById('fechaEvento');
-            if (dateInput) {
-                const today = new Date().toISOString().split('T')[0];
-                dateInput.setAttribute('min', today);
-            }
-
-            // Cookie consent functionality
-            initCookieConsent();
-        });
-
-        // Cookie Consent Functions
-        function initCookieConsent() {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const cookieConsent = localStorage.getItem('cookieConsent');
-            
-            if (!cookieConsent) {
-                setTimeout(() => {
-                    cookieBanner.classList.add('show');
-                }, 1000);
-            }
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookie-banner').classList.remove('show');
-            setCookie('cookie_consent', 'accepted', 365);
-        }
-
-        function rejectCookies() {
-            localStorage.setItem('cookieConsent', 'rejected');
-            document.getElementById('cookie-banner').classList.remove('show');
-            setCookie('cookie_consent', 'rejected', 365);
-        }
-
-        function showCookieSettings() {
-            window.open('cookies.html', '_blank');
-        }
-
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = 'expires=' + date.toUTCString();
-            document.cookie = name + '=' + value + ';' + expires + ';path=/';
-        }
-
-        // Scroll Animation
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('section');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Make hero section visible immediately
-            document.querySelector('.hero-section').style.opacity = '1';
-            document.querySelector('.hero-section').style.transform = 'translateY(0)';
-        });
+        // Make hero section visible immediately
+        document.querySelector(".hero-section").style.opacity = "1";
+        document.querySelector(".hero-section").style.transform =
+          "translateY(0)";
+      });
     </script>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <img src="LOGO NAVBAR.png" alt="Éclat">
+      <img src="LOGO NAVBAR.png" alt="Éclat" />
 
-        <button class="hamburger" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
+      <button class="hamburger" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="links">
+        <li><a href="#about" data-lang="nav_about">Quiénes somos</a></li>
+        <li><a href="#process" data-lang="nav_process">Cómo trabajamos</a></li>
+        <li><a href="#services" data-lang="nav_services">Servicios</a></li>
+        <li><a href="#plans" data-lang="nav_plans">Planes</a></li>
+        <li><a href="#contact" data-lang="nav_contact">Contacto</a></li>
+      </ul>
+
+      <div class="navbar-controls">
+        <button class="toggle-btn" onclick="toggleLanguage()">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-text">ES</span>
         </button>
-
-        <ul class="links">
-            <li><a href="#about" data-lang="nav_about">Quiénes somos</a></li>
-            <li><a href="#process" data-lang="nav_process">Cómo trabajamos</a></li>
-            <li><a href="#services" data-lang="nav_services">Servicios</a></li>
-            <li><a href="#plans" data-lang="nav_plans">Planes</a></li>
-            <li><a href="#contact" data-lang="nav_contact">Contacto</a></li>
-        </ul>
-
-        <div class="navbar-controls">
-            <button class="toggle-btn" onclick="toggleLanguage()">
-                <i class="fa-solid fa-globe"></i>
-                <span id="lang-text">ES</span>
-            </button>
-            <button class="toggle-btn" onclick="toggleDarkMode()">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-        </div>
-
-
+        <button class="toggle-btn" onclick="toggleDarkMode()">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
     </nav>
 
     <!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-content">
-            <p>
-                Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra 
-                <a href="/cookies" target="_blank">Política de Cookies</a>.
-            </p>
-            <div class="cookie-buttons">
-                <button class="cookie-btn accept" onclick="acceptCookies()">Aceptar</button>
-                <button class="cookie-btn reject" onclick="rejectCookies()">Rechazar</button>
-                <button class="cookie-btn settings" onclick="showCookieSettings()">Configurar</button>
-            </div>
+      <div class="cookie-content">
+        <p>
+    Utilizamos cookies para garantizar el funcionamiento de la web y,
+    con tu consentimiento, analizar el uso de la página y mejorar tu experiencia.
+    Puedes aceptar todas las cookies, rechazarlas o configurar tus preferencias.
+    Consulta nuestra
+    <a href="/cookies.html" target="_blank" rel="noopener noreferrer">
+        Política de Cookies
+    </a>
+    para obtener más información.
+</p>
+        <div class="cookie-buttons">
+          <button class="cookie-btn accept" onclick="acceptCookies()">
+            Aceptar
+          </button>
+          <button class="cookie-btn reject" onclick="rejectCookies()">
+            Rechazar
+          </button>
+          <button class="cookie-btn settings" onclick="showCookieSettings()">
+            Configurar
+          </button>
         </div>
+      </div>
     </div>
 
     <!----HERO----->
     <section class="hero-section">
-        <div class="hero-background">
-            <img src="heroSinLEtras.jpeg" alt="Diseño de eventos exclusivos">
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="about">
-            <h1 data-lang="hero_title">Diseñamos eventos que cuentan tu historia</h1>
-            <h4 data-lang="hero_subtitle">Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para
-                que disfrutes de un día único e irrepetible.</h4>
-            <button data-lang="hero_button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Conócenos</button>
-        </div>
-
-
+      <div class="hero-background">
+        <img src="heroSinLEtras.jpeg" alt="Diseño de eventos exclusivos" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="about">
+        <h1 data-lang="hero_title">
+          Diseñamos eventos que cuentan tu historia
+        </h1>
+        <h4 data-lang="hero_subtitle">
+          Convertimos tus ideas en experiencias exclusivas, cuidando cada
+          detalle para que disfrutes de un día único e irrepetible.
+        </h4>
+        <button
+          data-lang="hero_button"
+          onclick="
+            document
+              .getElementById('contact')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Conócenos
+        </button>
+      </div>
     </section>
-
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="heroquienessomos.jpg" alt="Eclat Event Planning">
-            </div>
-            <div class="about-content">
-                <h1 data-lang="about_title">Quienes somos</h1>
-                <p data-lang="about_text">Somos un equipo apasionado por crear eventos únicos y llenos de significado.
-                    Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada,
-                    donde
-                    cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y
-                    transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo
-                    organizar un evento, sino diseñar una experiencia que recordarás toda la vida.</p>
-            </div>
+      <div class="about-container">
+        <div class="about-image">
+          <img src="heroquienessomos.jpg" alt="Eclat Event Planning" />
         </div>
+        <div class="about-content">
+          <h1 data-lang="about_title">Quienes somos</h1>
+          <p data-lang="about_text">
+            Somos un equipo apasionado por crear eventos únicos y llenos de
+            significado. Creemos que cada celebración merece una planificación
+            cercana, cuidada y totalmente personalizada, donde cada detalle
+            refleje la esencia de quienes la viven. Trabajamos con
+            profesionalidad, compromiso y transparencia para que disfrutes del
+            proceso con total tranquilidad. Nuestro objetivo no es solo
+            organizar un evento, sino diseñar una experiencia que recordarás
+            toda la vida.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section">
-        <div class="section-title">
-            <span data-lang="services_subtitle">NUESTROS SERVICIOS</span>
-            <h2 data-lang="services_title">Tipos de eventos que organizamos</h2>
-            <p data-lang="services_text">Creamos experiencias únicas para todo tipo de celebraciones.</p>
+      <div class="section-title">
+        <span data-lang="services_subtitle">NUESTROS SERVICIOS</span>
+        <h2 data-lang="services_title">Tipos de eventos que organizamos</h2>
+        <p data-lang="services_text">
+          Creamos experiencias únicas para todo tipo de celebraciones.
+        </p>
+      </div>
+
+      <div class="services-zigzag">
+        <div class="service-item left">
+          <div class="service-number">01</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-ring"></i>
+            </div>
+            <h3 data-lang="service_weddings">Bodas</h3>
+            <p data-lang="service_weddings_desc">
+              Bodas de lujo e íntimas con atención personalizada
+            </p>
+          </div>
         </div>
 
-        <div class="services-zigzag">
-            <div class="service-item left">
-                <div class="service-number">01</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-ring"></i>
-                    </div>
-                    <h3 data-lang="service_weddings">Bodas</h3>
-                    <p data-lang="service_weddings_desc">Bodas de lujo e íntimas con atención personalizada</p>
-                </div>
+        <div class="service-item right">
+          <div class="service-number">02</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-heart"></i>
             </div>
-
-            <div class="service-item right">
-                <div class="service-number">02</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 data-lang="service_proposals">Pedidas de mano</h3>
-                    <p data-lang="service_proposals_desc">Momentos especiales e inolvidables</p>
-                </div>
-            </div>
-
-            <div class="service-item left">
-                <div class="service-number">03</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-champagne-glasses"></i>
-                    </div>
-                    <h3 data-lang="service_anniversaries">Aniversarios</h3>
-                    <p data-lang="service_anniversaries_desc">Celebración de hitos importantes</p>
-                </div>
-            </div>
-
-            <div class="service-item right">
-                <div class="service-number">04</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <h3 data-lang="service_corporate">Eventos corporativos</h3>
-                    <p data-lang="service_corporate_desc">Gala corporativa y eventos de negocios</p>
-                </div>
-            </div>
-
-            <div class="service-item left">
-                <div class="service-number">05</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-store"></i>
-                    </div>
-                    <h3 data-lang="service_openings">Aperturas de negocio</h3>
-                    <p data-lang="service_openings_desc">Lanzamientos e inauguraciones</p>
-                </div>
-            </div>
-
-            <div class="service-item right">
-                <div class="service-number">06</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-crown"></i>
-                    </div>
-                    <h3 data-lang="service_boutique">Corporativo boutique</h3>
-                    <p data-lang="service_boutique_desc">Eventos exclusivos para marcas selectas</p>
-                </div>
-            </div>
-
-            <div class="service-item left">
-                <div class="service-number">07</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
-                    <h3 data-lang="service_jubilees">Jubilaciones</h3>
-                    <p data-lang="service_jubilees_desc">Celebración de carreras profesionales</p>
-                </div>
-            </div>
-
-            <div class="service-item right">
-                <div class="service-number">08</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-cross"></i>
-                    </div>
-                    <h3 data-lang="service_communion">Comuniones y bautizos</h3>
-                    <p data-lang="service_communion_desc">Eventos familiares significativos</p>
-                </div>
-            </div>
-
-            <div class="service-item left">
-                <div class="service-number">09</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-ribbon"></i>
-                    </div>
-                    <h3 data-lang="service_brands">Marcas y productos</h3>
-                    <p data-lang="service_brands_desc">Presentaciones y lanzamientos</p>
-                </div>
-            </div>
-
-            <div class="service-item right">
-                <div class="service-number">10</div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <h3 data-lang="service_timeline">Línea del tiempo</h3>
-                    <p data-lang="service_timeline_desc">Eventos formales y ceremonias</p>
-                </div>
-            </div>
+            <h3 data-lang="service_proposals">Pedidas de mano</h3>
+            <p data-lang="service_proposals_desc">
+              Momentos especiales e inolvidables
+            </p>
+          </div>
         </div>
+
+        <div class="service-item left">
+          <div class="service-number">03</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-champagne-glasses"></i>
+            </div>
+            <h3 data-lang="service_anniversaries">Aniversarios</h3>
+            <p data-lang="service_anniversaries_desc">
+              Celebración de hitos importantes
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item right">
+          <div class="service-number">04</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3 data-lang="service_corporate">Eventos corporativos</h3>
+            <p data-lang="service_corporate_desc">
+              Gala corporativa y eventos de negocios
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item left">
+          <div class="service-number">05</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <h3 data-lang="service_openings">Aperturas de negocio</h3>
+            <p data-lang="service_openings_desc">
+              Lanzamientos e inauguraciones
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item right">
+          <div class="service-number">06</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3 data-lang="service_boutique">Corporativo boutique</h3>
+            <p data-lang="service_boutique_desc">
+              Eventos exclusivos para marcas selectas
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item left">
+          <div class="service-number">07</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <h3 data-lang="service_jubilees">Jubilaciones</h3>
+            <p data-lang="service_jubilees_desc">
+              Celebración de carreras profesionales
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item right">
+          <div class="service-number">08</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-cross"></i>
+            </div>
+            <h3 data-lang="service_communion">Comuniones y bautizos</h3>
+            <p data-lang="service_communion_desc">
+              Eventos familiares significativos
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item left">
+          <div class="service-number">09</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-ribbon"></i>
+            </div>
+            <h3 data-lang="service_brands">Marcas y productos</h3>
+            <p data-lang="service_brands_desc">Presentaciones y lanzamientos</p>
+          </div>
+        </div>
+
+        <div class="service-item right">
+          <div class="service-number">10</div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 data-lang="service_timeline">Línea del tiempo</h3>
+            <p data-lang="service_timeline_desc">
+              Eventos formales y ceremonias
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Plans Section -->
     <section id="plans" class="plans-section">
-        <div class="section-title">
-            <span data-lang="plans_subtitle">NUESTROS PLANES</span>
-            <h2 data-lang="plans_title">Elige el plan perfecto para tu evento</h2>
-            <p data-lang="plans_text">Ofrecemos diferentes opciones adaptadas a tus necesidades y presupuesto.</p>
+      <div class="section-title">
+        <span data-lang="plans_subtitle">NUESTROS PLANES</span>
+        <h2 data-lang="plans_title">Elige el plan perfecto para tu evento</h2>
+        <p data-lang="plans_text">
+          Ofrecemos diferentes opciones adaptadas a tus necesidades y
+          presupuesto.
+        </p>
+      </div>
+
+      <div class="plans-container">
+        <!-- Plan Básico -->
+        <div class="plan-card basic">
+          <div class="plan-header">
+            <h3 data-lang="plan_basic_title">Básico</h3>
+            <p class="plan-description" data-lang="plan_basic_desc">
+              Ideal para eventos pequeños y coordinación esencial
+            </p>
+          </div>
+          <ul class="plan-features">
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_basic_feature1"
+                >Coordinación del día del evento</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_basic_feature2"
+                >1 reunión de planificación previa</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_basic_feature3">Timeline del evento</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_basic_feature4"
+                >Coordinación de proveedores básicos</span
+              >
+            </li>
+          </ul>
+          <button
+            class="plan-button"
+            onclick="openWhatsApp('Básico')"
+            data-lang="plan_button"
+          >
+            Seleccionar plan
+          </button>
         </div>
 
-        <div class="plans-container">
-            <!-- Plan Básico -->
-            <div class="plan-card basic">
-                <div class="plan-header">
-                    <h3 data-lang="plan_basic_title">Básico</h3>
-                    <p class="plan-description" data-lang="plan_basic_desc">Ideal para eventos pequeños y coordinación esencial</p>
-                </div>
-                <ul class="plan-features">
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_basic_feature1">Coordinación del día del evento</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_basic_feature2">1 reunión de planificación previa</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_basic_feature3">Timeline del evento</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_basic_feature4">Coordinación de proveedores básicos</span></li>
-                </ul>
-                <button class="plan-button" onclick="openWhatsApp('Básico')" data-lang="plan_button">Seleccionar plan</button>
-            </div>
-
-            <!-- Plan Estándar -->
-            <div class="plan-card standard featured">
-                <div class="featured-badge">
-                    <span data-lang="plan_featured">Más popular</span>
-                </div>
-                <div class="plan-header">
-                    <h3 data-lang="plan_standard_title">Estándar</h3>
-                    <p class="plan-description" data-lang="plan_standard_desc">Perfecto para bodas y eventos de tamaño medio</p>
-                </div>
-                <ul class="plan-features">
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature1">Coordinación completa del evento</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature2">3 reuniones de planificación</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature3">Diseño conceptual del evento</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature4">Búsqueda y gestión de proveedores</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature5">Timeline detallado</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_standard_feature6">Coordinación día del evento</span></li>
-                </ul>
-                <button class="plan-button featured" onclick="openWhatsApp('Estándar')" data-lang="plan_button">Seleccionar plan</button>
-            </div>
-
-            <!-- Plan Premium -->
-            <div class="plan-card premium">
-                <div class="plan-header">
-                    <h3 data-lang="plan_premium_title">Premium</h3>
-                    <p class="plan-description" data-lang="plan_premium_desc">Experiencia completa para eventos exclusivos</p>
-                </div>
-                <ul class="plan-features">
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature1">Servicio de planeación completo</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature2">Reuniones ilimitadas</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature3">Diseño conceptual personalizado</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature4">Gestión premium de proveedores</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature5">Coordinación completa día del evento</span></li>
-                    <li><i class="fa-solid fa-check"></i><span data-lang="plan_premium_feature6">Decoración y diseño personalizado</span></li>
-                </ul>
-                <button class="plan-button" onclick="openWhatsApp('Premium')" data-lang="plan_button">Seleccionar plan</button>
-            </div>
+        <!-- Plan Estándar -->
+        <div class="plan-card standard featured">
+          <div class="featured-badge">
+            <span data-lang="plan_featured">Más popular</span>
+          </div>
+          <div class="plan-header">
+            <h3 data-lang="plan_standard_title">Estándar</h3>
+            <p class="plan-description" data-lang="plan_standard_desc">
+              Perfecto para bodas y eventos de tamaño medio
+            </p>
+          </div>
+          <ul class="plan-features">
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature1"
+                >Coordinación completa del evento</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature2"
+                >3 reuniones de planificación</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature3"
+                >Diseño conceptual del evento</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature4"
+                >Búsqueda y gestión de proveedores</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature5"
+                >Timeline detallado</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_standard_feature6"
+                >Coordinación día del evento</span
+              >
+            </li>
+          </ul>
+          <button
+            class="plan-button featured"
+            onclick="openWhatsApp('Estándar')"
+            data-lang="plan_button"
+          >
+            Seleccionar plan
+          </button>
         </div>
+
+        <!-- Plan Premium -->
+        <div class="plan-card premium">
+          <div class="plan-header">
+            <h3 data-lang="plan_premium_title">Premium</h3>
+            <p class="plan-description" data-lang="plan_premium_desc">
+              Experiencia completa para eventos exclusivos
+            </p>
+          </div>
+          <ul class="plan-features">
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature1"
+                >Servicio de planeación completo</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature2"
+                >Reuniones ilimitadas</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature3"
+                >Diseño conceptual personalizado</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature4"
+                >Gestión premium de proveedores</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature5"
+                >Coordinación completa día del evento</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i
+              ><span data-lang="plan_premium_feature6"
+                >Decoración y diseño personalizado</span
+              >
+            </li>
+          </ul>
+          <button
+            class="plan-button"
+            onclick="openWhatsApp('Premium')"
+            data-lang="plan_button"
+          >
+            Seleccionar plan
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Process Section -->
     <section id="process" class="process-section">
-        <div class="section-title">
-            <span data-lang="process_subtitle">CÓMO TRABAJAMOS</span>
-            <h2 data-lang="process_title">Un proceso pensado para que disfrutes cada momento</h2>
-            <p data-lang="process_text">
-                Trabajamos con un número reducido de eventos cada temporada para ofrecer una atención cercana,
-                personalizada y acompañarte de principio a fin.
+      <div class="section-title">
+        <span data-lang="process_subtitle">CÓMO TRABAJAMOS</span>
+        <h2 data-lang="process_title">
+          Un proceso pensado para que disfrutes cada momento
+        </h2>
+        <p data-lang="process_text">
+          Trabajamos con un número reducido de eventos cada temporada para
+          ofrecer una atención cercana, personalizada y acompañarte de principio
+          a fin.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-icon">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <div class="process-content">
+            <div class="process-number">01</div>
+            <h3 data-lang="step1_title">Primera reunión</h3>
+            <p data-lang="step1_text">
+              Nos conocemos, escuchamos vuestra historia y descubrimos cómo
+              imagináis vuestro evento.
             </p>
+          </div>
         </div>
 
-        <div class="process-timeline">
-            <div class="process-step">
-                <div class="process-icon">
-                    <i class="fa-solid fa-handshake"></i>
-                </div>
-                <div class="process-content">
-                    <div class="process-number">01</div>
-                    <h3 data-lang="step1_title">Primera reunión</h3>
-                    <p data-lang="step1_text">
-                        Nos conocemos, escuchamos vuestra historia y descubrimos cómo imagináis vuestro evento.
-                    </p>
-                </div>
-            </div>
-
-            <div class="process-step">
-                <div class="process-icon">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                </div>
-                <div class="process-content">
-                    <div class="process-number">02</div>
-                    <h3 data-lang="step2_title">Planificación</h3>
-                    <p data-lang="step2_text">
-                        Diseñamos la propuesta, seleccionamos proveedores y organizamos cada detalle.
-                    </p>
-                </div>
-            </div>
-
-            <div class="process-step">
-                <div class="process-icon">
-                    <i class="fa-solid fa-tasks"></i>
-                </div>
-                <div class="process-content">
-                    <div class="process-number">03</div>
-                    <h3 data-lang="step3_title">Coordinación</h3>
-                    <p data-lang="step3_text">
-                        Supervisamos cada fase del proceso para garantizar que todo salga según lo previsto.
-                    </p>
-                </div>
-            </div>
-
-            <div class="process-step">
-                <div class="process-icon">
-                    <i class="fa-solid fa-champagne-glasses"></i>
-                </div>
-                <div class="process-content">
-                    <div class="process-number">04</div>
-                    <h3 data-lang="step4_title">El gran día</h3>
-                    <p data-lang="step4_text">
-                        Nos encargamos de toda la coordinación para que solo tengáis que disfrutar.
-                    </p>
-                </div>
-            </div>
+        <div class="process-step">
+          <div class="process-icon">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
+          <div class="process-content">
+            <div class="process-number">02</div>
+            <h3 data-lang="step2_title">Planificación</h3>
+            <p data-lang="step2_text">
+              Diseñamos la propuesta, seleccionamos proveedores y organizamos
+              cada detalle.
+            </p>
+          </div>
         </div>
+
+        <div class="process-step">
+          <div class="process-icon">
+            <i class="fa-solid fa-tasks"></i>
+          </div>
+          <div class="process-content">
+            <div class="process-number">03</div>
+            <h3 data-lang="step3_title">Coordinación</h3>
+            <p data-lang="step3_text">
+              Supervisamos cada fase del proceso para garantizar que todo salga
+              según lo previsto.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <div class="process-content">
+            <div class="process-number">04</div>
+            <h3 data-lang="step4_title">El gran día</h3>
+            <p data-lang="step4_text">
+              Nos encargamos de toda la coordinación para que solo tengáis que
+              disfrutar.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Form Section -->
     <section id="contact" class="contact-section">
-        <div class="section-title">
-            <span data-lang="contact_subtitle">CONTÁCTANOS</span>
-            <h2 data-lang="contact_title">¿Listo para crear tu evento perfecto?</h2>
-            <p data-lang="contact_subtitle_text">Completa el formulario y nos pondremos en contacto contigo lo antes
-                posible.</p>
+      <div class="section-title">
+        <span data-lang="contact_subtitle">CONTÁCTANOS</span>
+        <h2 data-lang="contact_title">¿Listo para crear tu evento perfecto?</h2>
+        <p data-lang="contact_subtitle_text">
+          Completa el formulario y nos pondremos en contacto contigo lo antes
+          posible.
+        </p>
+      </div>
+      <form
+        id="contact-form"
+        action="https://formsubmit.co/info@eventoseclat.com"
+        method="POST"
+      >
+        <!-- Página de gracias -->
+        <input
+          type="hidden"
+          name="_next"
+          value="https://eventoseclat.vercel.app/gracias.html"
+        />
+
+        <!-- Evita el captcha -->
+        <input type="hidden" name="_captcha" value="false" />
+
+        <!-- Email de destino -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nuevo mensaje del formulario de contacto Éclat"
+        />
+
+        <div class="form-group">
+          <input type="text" name="nombre" placeholder="Nombre" required />
         </div>
-        <form id="contact-form" action="https://formsubmit.co/info@eventoseclat.com" method="POST">
 
-            <!-- Página de gracias -->
-            <input type="hidden" name="_next" value="https://eventoseclat.vercel.app/gracias.html">
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Correo electrónico"
+            required
+          />
+        </div>
 
-            <!-- Evita el captcha -->
-            <input type="hidden" name="_captcha" value="false">
+        <div class="form-group">
+          <input type="tel" name="telefono" placeholder="Teléfono" required />
+        </div>
 
-            <!-- Email de destino -->
-            <input type="hidden" name="_subject" value="Nuevo mensaje del formulario de contacto Éclat">
+        <div class="form-group date-group">
+          <label for="fechaEvento">
+            <i class="fa-solid fa-calendar-alt"></i>
+            <span>Fecha del evento</span>
+          </label>
+          <input
+            type="date"
+            id="fechaEvento"
+            name="fechaEvento"
+            required
+            min=""
+          />
+        </div>
 
-            <div class="form-group">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-            </div>
+        <div class="form-group">
+          <textarea
+            name="mensaje"
+            placeholder="Cuéntanos sobre tu evento..."
+            rows="5"
+            required
+          ></textarea>
+        </div>
 
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-            </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="privacidad" name="privacidad" required />
+          <label for="privacidad">
+            He leído y acepto la
+            <a href="politica-privacidad.html" target="_blank"
+              >Política de Privacidad</a
+            >.
+          </label>
+        </div>
 
-            <div class="form-group">
-                <input type="tel" name="telefono" placeholder="Teléfono" required>
-
-            </div>
-
-            <div class="form-group date-group">
-                <label for="fechaEvento">
-                    <i class="fa-solid fa-calendar-alt"></i>
-                    <span>Fecha del evento</span>
-                </label>
-                <input type="date" id="fechaEvento" name="fechaEvento" required min="">
-            </div>
-
-            <div class="form-group">
-                <textarea name="mensaje" placeholder="Cuéntanos sobre tu evento..." rows="5" required></textarea>
-            </div>
-
-            <div class="checkbox-container">
-                <input type="checkbox" id="privacidad" name="privacidad" required>
-                <label for="privacidad">
-                    He leído y acepto la <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>.
-                </label>
-            </div>
-
-            <button type="submit">
-                Enviar mensaje
-            </button>
-
-        </form>
+        <button type="submit">Enviar mensaje</button>
+      </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-message">
-                <h4 data-lang="footer_text">Nos encantará conocer vuestra historia y acompañaros en la creación de un evento
-                    único e inolvidable. Ponte en contacto con nosotros y empecemos a hacerlo realidad.</h4>
-            </div>
-
-            <div class="contact-cards">
-                <a href="https://www.instagram.com/eventos_eclat.oficial/" target="_blank" rel="noopener noreferrer"
-                    class="contact-card">
-                    <i class="fa-brands fa-instagram"></i>
-                    <h3 data-lang="contact_instagram">Instagram</h3>
-                    <p>@eventos_eclat.oficial</p>
-                </a>
-
-                <a href="https://wa.me/34602719265" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <h3 data-lang="contact_whatsapp">WhatsApp</h3>
-                    <p>+34 602 719 265</p>
-                </a>
-
-                <a href="mailto:info@eventoseclat.com" class="contact-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3 data-lang="contact_email">Correo electrónico</h3>
-                    <p>info@eventoseclat.com</p>
-                </a>
-            </div>
-
-            <div class="footer-legal">
-                <div class="legal-links">
-                    <a href="politica-privacidad.html">Política de Privacidad</a>
-                    <span class="separator">|</span>
-                    <a href="aviso-legal.html">Aviso Legal</a>
-                    <span class="separator">|</span>
-                    <a href="cookies.html">Política de Cookies</a>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2026 Éclat Eventos. Todos los derechos reservados.</p>
-                </div>
-            </div>
+      <div class="footer-content">
+        <div class="footer-message">
+          <h4 data-lang="footer_text">
+            Nos encantará conocer vuestra historia y acompañaros en la creación
+            de un evento único e inolvidable. Ponte en contacto con nosotros y
+            empecemos a hacerlo realidad.
+          </h4>
         </div>
+
+        <div class="contact-cards">
+          <a
+            href="https://www.instagram.com/eventos_eclat.oficial/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            <h3 data-lang="contact_instagram">Instagram</h3>
+            <p>@eventos_eclat.oficial</p>
+          </a>
+
+          <a
+            href="https://wa.me/34602719265"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3 data-lang="contact_whatsapp">WhatsApp</h3>
+            <p>+34 602 719 265</p>
+          </a>
+
+          <a href="mailto:info@eventoseclat.com" class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <h3 data-lang="contact_email">Correo electrónico</h3>
+            <p>info@eventoseclat.com</p>
+          </a>
+        </div>
+
+        <div class="footer-legal">
+          <div class="legal-links">
+            <a href="politica-privacidad.html">Política de Privacidad</a>
+            <span class="separator">|</span>
+            <a href="aviso-legal.html">Aviso Legal</a>
+            <span class="separator">|</span>
+            <a href="cookies.html">Política de Cookies</a>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2026 Éclat Eventos. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('section');
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
             });
+          },
+          {
+            threshold: 0.1,
+          },
+        );
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            document.querySelector('.hero-section').style.opacity = '1';
-            document.querySelector('.hero-section').style.transform = 'translateY(0)';
-
-            // Gradual blur effect on scroll
-            const navbar = document.querySelector('.navbar');
-
-            window.addEventListener('scroll', function () {
-                const scrollY = window.scrollY;
-                const maxBlur = 20;
-                const blurAmount = Math.min(scrollY / 50, maxBlur);
-
-                navbar.style.backdropFilter = `blur(${blurAmount}px)`;
-            });
-
-            // Flip cards click functionality for mobile
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-            if (isTouchDevice) {
-                const flipCards = document.querySelectorAll('.flip-card');
-                flipCards.forEach(card => {
-                    card.addEventListener('click', function () {
-                        // Cerrar todas las demás tarjetas
-                        flipCards.forEach(otherCard => {
-                            if (otherCard !== this) {
-                                otherCard.classList.remove('flipped');
-                            }
-                        });
-                        // Voltear la tarjeta seleccionada
-                        this.classList.toggle('flipped');
-                    });
-                });
-            }
+        sections.forEach((section) => {
+          observer.observe(section);
         });
+
+        document.querySelector(".hero-section").style.opacity = "1";
+        document.querySelector(".hero-section").style.transform =
+          "translateY(0)";
+
+        // Gradual blur effect on scroll
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function () {
+          const scrollY = window.scrollY;
+          const maxBlur = 20;
+          const blurAmount = Math.min(scrollY / 50, maxBlur);
+
+          navbar.style.backdropFilter = `blur(${blurAmount}px)`;
+        });
+
+        // Flip cards click functionality for mobile
+        const isTouchDevice =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+        if (isTouchDevice) {
+          const flipCards = document.querySelectorAll(".flip-card");
+          flipCards.forEach((card) => {
+            card.addEventListener("click", function () {
+              // Cerrar todas las demás tarjetas
+              flipCards.forEach((otherCard) => {
+                if (otherCard !== this) {
+                  otherCard.classList.remove("flipped");
+                }
+              });
+              // Voltear la tarjeta seleccionada
+              this.classList.toggle("flipped");
+            });
+          });
+        }
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
