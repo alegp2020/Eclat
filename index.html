@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -303,61 +305,111 @@
         window.open(whatsappUrl, "_blank");
       }
 
-      // Mobile menu toggle
+      // Universal mobile menu toggle for all devices
       function toggleMenu() {
         const links = document.querySelector(".links");
         const hamburger = document.querySelector(".hamburger");
-        const icon = hamburger.querySelector("i");
+        const icon = hamburger ? hamburger.querySelector("i") : null;
+
+        if (!links || !hamburger) return;
 
         links.classList.toggle("active");
 
         if (links.classList.contains("active")) {
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-times");
+          if (icon) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          }
           document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+          // Also prevent scrolling on the html element for some mobile browsers
+          document.documentElement.style.overflow = "hidden";
         } else {
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
+          if (icon) {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
           document.body.style.overflow = ""; // Restore scrolling
+          document.documentElement.style.overflow = "";
         }
       }
 
-      // Smooth scroll for all anchor links (both mobile and desktop)
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const targetId = this.getAttribute('href');
-          
-          // Only handle internal links
-          if (targetId && targetId.startsWith('#') && targetId !== '#') {
-            e.preventDefault();
+      // Universal smooth scroll for all mobile devices
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          // Universal navigation handler for all devices
+          const handleNavigation = function(e) {
+            const targetId = anchor.getAttribute('href');
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              // Close mobile menu if open
-              const links = document.querySelector(".links");
-              const hamburger = document.querySelector(".hamburger");
-              const icon = hamburger ? hamburger.querySelector("i") : null;
+            // Only handle internal links
+            if (targetId && targetId.startsWith('#') && targetId !== '#') {
+              e.preventDefault();
+              e.stopPropagation();
               
-              if (links && links.classList.contains("active")) {
-                links.classList.remove("active");
-                if (icon) {
-                  icon.classList.remove("fa-times");
-                  icon.classList.add("fa-bars");
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                // Close mobile menu if open
+                const links = document.querySelector(".links");
+                const hamburger = document.querySelector(".hamburger");
+                const icon = hamburger ? hamburger.querySelector("i") : null;
+                
+                if (links && links.classList.contains("active")) {
+                  links.classList.remove("active");
+                  if (icon) {
+                    icon.classList.remove("fa-times");
+                    icon.classList.add("fa-bars");
+                  }
+                  document.body.style.overflow = "";
                 }
-                document.body.style.overflow = "";
+                
+                // Scroll to target with offset for navbar
+                const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 80;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                // Universal scroll compatible with all devices
+                setTimeout(function() {
+                  window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                  });
+                }, 50);
               }
-              
-              // Scroll to target with offset for navbar
-              const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 80;
-              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-              
-              window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-              });
             }
-          }
+          };
+          
+          // Remove existing listeners to avoid duplicates
+          anchor.removeEventListener('click', handleNavigation);
+          anchor.removeEventListener('touchend', handleNavigation);
+          
+          // Add click event listener (works on most devices)
+          anchor.addEventListener('click', handleNavigation, { passive: false });
+          
+          // Add touch end event listener for mobile devices
+          anchor.addEventListener('touchend', function(e) {
+            // Only handle if not already handled by click
+            if (!e.defaultPrevented) {
+              handleNavigation(e);
+            }
+          }, { passive: false });
         });
+      }
+      
+      // Initialize with multiple fallbacks for all devices
+      function initializeNavigation() {
+        initSmoothScroll();
+      }
+      
+      // Initialize on various events for maximum compatibility
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeNavigation);
+      } else {
+        initializeNavigation();
+      }
+      
+      // Additional initialization for different device behaviors
+      window.addEventListener('load', initializeNavigation);
+      window.addEventListener('resize', function() {
+        // Re-initialize on resize for responsive changes
+        setTimeout(initializeNavigation, 100);
       });
 
       // Close menu when clicking outside

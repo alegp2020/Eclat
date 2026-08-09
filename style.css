@@ -148,7 +148,7 @@ body.dark-mode .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Universal compatibility */
 .hamburger {
     display: none;
     background: none;
@@ -160,6 +160,14 @@ body.dark-mode .navbar {
     transition: var(--transition);
     z-index: 1002;
     position: relative;
+    -webkit-tap-highlight-color: rgba(200, 169, 126, 0.3);
+    touch-action: manipulation;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .hamburger:hover {
@@ -169,6 +177,11 @@ body.dark-mode .navbar {
 
 .hamburger:active {
     transform: scale(0.95);
+}
+
+.hamburger:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
 }
 
 body.dark-mode .hamburger {
@@ -1645,30 +1658,59 @@ body.dark-mode .date-group label {
         padding: 2rem;
         gap: 1.5rem;
         transform: translateY(-150%);
-        transition: var(--transition);
+        transition: transform 0.3s ease-in-out;
         box-shadow: var(--shadow-lg);
-        z-index: 998;
+        z-index: 1001;
         max-height: calc(100vh - 70px);
         overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        pointer-events: auto;
+        -webkit-transform: translateY(-150%);
+        -moz-transform: translateY(-150%);
+        -ms-transform: translateY(-150%);
+        -o-transform: translateY(-150%);
     }
 
     .links.active {
         transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
     }
 
     .links a {
         font-size: 1.1rem;
         padding: 1rem 0;
         text-align: center;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         border-radius: var(--radius-sm);
-        transition: var(--transition);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(200, 169, 126, 0.3);
+        min-height: 44px; /* Universal minimum touch target */
+        min-width: 44px; /* Universal minimum touch target */
+        text-decoration: none;
+        color: var(--text-dark);
+        position: relative;
     }
 
     .links a:hover {
         background: var(--bg-cream);
         color: var(--gold);
+    }
+
+    .links a:active {
+        background: var(--gold);
+        color: var(--white);
+    }
+
+    body.dark-mode .links a {
+        color: var(--text-dark);
     }
 
     body.dark-mode .links a:hover {
@@ -2246,6 +2288,18 @@ body.dark-mode .date-group label {
     /* Dark mode improvements for mobile */
 
     body.dark-mode .about h1,
+    
+    /* iOS-specific fixes */
+    @supports (-webkit-touch-callout: none) {
+        .links {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .links a {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    }
     body.dark-mode .section-title h2,
     body.dark-mode .cartas-uno h1,
     body.dark-mode .cartas-dos h1,
