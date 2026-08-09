@@ -158,7 +158,8 @@ body.dark-mode .navbar {
     cursor: pointer;
     padding: 0.5rem;
     transition: var(--transition);
-    z-index: 1001;
+    z-index: 1002;
+    position: relative;
 }
 
 .hamburger:hover {
@@ -1502,6 +1503,7 @@ body.dark-mode .form-group textarea {
 /* Date Input Styling */
 .date-group {
     position: relative;
+    width: 100%;
 }
 
 .date-group label {
@@ -1520,9 +1522,23 @@ body.dark-mode .form-group textarea {
 }
 
 .date-group input[type="date"] {
+    width: 100%;
     padding: 1.2rem 1.5rem;
     cursor: pointer;
     font-family: var(--font-body);
+    font-size: 1rem;
+    background: var(--white);
+    color: var(--text-dark);
+    border: 2px solid var(--bg-cream);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    outline: none;
+}
+
+body.dark-mode .date-group input[type="date"] {
+    background: var(--bg-cream);
+    border-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
 .date-group input[type="date"]::-webkit-calendar-picker-indicator {
@@ -1530,6 +1546,7 @@ body.dark-mode .form-group textarea {
     opacity: 0.6;
     transition: var(--transition);
     filter: invert(0.5);
+    background: transparent;
 }
 
 .date-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
@@ -1565,6 +1582,10 @@ body.dark-mode .date-group label {
 }
 
 #contact-form button {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 1rem 3rem;
     font-size: 1rem;
     font-family: var(--font-body);
     font-weight: 500;
@@ -1600,7 +1621,7 @@ body.dark-mode .date-group label {
 #contact-form button:hover {
     background: var(--gold-dark);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-gold);
+    box-shadow: 0 12px 40px rgba(200, 169, 126, 0.5);
 }
 
 
@@ -1626,7 +1647,9 @@ body.dark-mode .date-group label {
         transform: translateY(-150%);
         transition: var(--transition);
         box-shadow: var(--shadow-lg);
-        z-index: 999;
+        z-index: 998;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .links.active {
@@ -1635,12 +1658,25 @@ body.dark-mode .date-group label {
 
     .links a {
         font-size: 1.1rem;
-        padding: 0.75rem 0;
+        padding: 1rem 0;
         text-align: center;
+        display: block;
+        width: 100%;
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+    }
+
+    .links a:hover {
+        background: var(--bg-cream);
+        color: var(--gold);
+    }
+
+    body.dark-mode .links a:hover {
+        background: rgba(200, 169, 126, 0.1);
     }
 
     body.dark-mode .links {
-        background: var(--white);
+        background: var(--bg-cream);
         border-bottom: 1px solid var(--gold);
     }
 
@@ -1849,10 +1885,16 @@ body.dark-mode .date-group label {
 
     .date-group label {
         font-size: 0.85rem;
+        flex-wrap: wrap;
     }
 
     .date-group label i {
         font-size: 1rem;
+    }
+
+    .date-group input[type="date"] {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
     }
 
     #contact-form button {
@@ -1918,15 +1960,18 @@ body.dark-mode .date-group label {
     /* Mobile Menu adjustments */
     .hamburger {
         font-size: 1.3rem;
+        padding: 0.4rem;
     }
 
     .links {
         top: 60px;
         padding: 1.5rem;
+        gap: 1rem;
     }
 
     .links a {
         font-size: 1rem;
+        padding: 0.8rem 0;
     }
 
     /* Navbar */
@@ -2081,6 +2126,7 @@ body.dark-mode .date-group label {
 
     .date-group label {
         font-size: 0.8rem;
+        flex-wrap: wrap;
     }
 
     .date-group label i {
@@ -2089,6 +2135,7 @@ body.dark-mode .date-group label {
 
     .date-group input[type="date"] {
         padding: 0.8rem 1rem;
+        font-size: 0.85rem;
     }
 
     #contact-form button {
@@ -2227,5 +2274,334 @@ body.dark-mode .date-group label {
     body.dark-mode .links a {
         color: #FFFFFF;
         text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* =========================
+   COOKIE CONSENT BANNER
+   ========================= */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    padding: 1.5rem 5%;
+    display: none;
+    animation: slideUp 0.5s ease-out;
+}
+
+.cookie-banner.show {
+    display: block;
+}
+
+body.dark-mode .cookie-banner {
+    background: var(--bg-cream);
+    border-top: 1px solid var(--gold);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text h4 {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cookie-text p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cookie-btn.accept {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.cookie-btn.accept:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.cookie-btn.reject {
+    background: var(--bg-cream);
+    color: var(--text-dark);
+    border: 1px solid var(--gold);
+}
+
+.cookie-btn.reject:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.cookie-btn.settings {
+    background: transparent;
+    color: var(--text-gray);
+    border: 1px solid var(--text-light);
+}
+
+.cookie-btn.settings:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Cookie Modal */
+.cookie-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.cookie-modal-content {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: scaleIn 0.3s ease-out;
+}
+
+body.dark-mode .cookie-modal-content {
+    background: var(--bg-cream);
+    border: 1px solid var(--gold);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cookie-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--bg-cream);
+}
+
+.cookie-modal-header h3 {
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--gold);
+    transform: rotate(90deg);
+}
+
+.cookie-modal-body {
+    padding: 2rem;
+}
+
+.cookie-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--bg-cream);
+}
+
+.cookie-option:last-child {
+    border-bottom: none;
+}
+
+.cookie-option-info {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.cookie-option-info h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cookie-option-info p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.cookie-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.cookie-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-cream);
+    transition: var(--transition);
+    border-radius: 26px;
+    border: 1px solid var(--text-light);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-gray);
+    transition: var(--transition);
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--gold);
+    border-color: var(--gold);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+    background-color: var(--white);
+}
+
+input:disabled + .slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cookie-modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--bg-cream);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cookie-modal-footer .cookie-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Responsive Cookie Banner */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cookie-btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+    }
+
+    .cookie-modal {
+        padding: 1rem;
+    }
+
+    .cookie-modal-content {
+        max-height: 95vh;
+    }
+
+    .cookie-option {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cookie-toggle {
+        align-self: flex-start;
     }
 }
