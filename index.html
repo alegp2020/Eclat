@@ -322,28 +322,39 @@
         }
       }
 
-      // Close menu when clicking on a link
-      document.querySelectorAll(".links a").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const links = document.querySelector(".links");
-          const hamburger = document.querySelector(".hamburger");
-          const icon = hamburger.querySelector("i");
-
-          // Close menu
-          links.classList.remove("active");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-          document.body.style.overflow = ""; // Restore scrolling
-
-          // Allow the link to work normally
-          const targetId = link.getAttribute("href");
-          if (targetId && targetId.startsWith("#")) {
+      // Smooth scroll for all anchor links (both mobile and desktop)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          
+          // Only handle internal links
+          if (targetId && targetId.startsWith('#') && targetId !== '#') {
             e.preventDefault();
+            
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-              setTimeout(() => {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-              }, 100);
+              // Close mobile menu if open
+              const links = document.querySelector(".links");
+              const hamburger = document.querySelector(".hamburger");
+              const icon = hamburger ? hamburger.querySelector("i") : null;
+              
+              if (links && links.classList.contains("active")) {
+                links.classList.remove("active");
+                if (icon) {
+                  icon.classList.remove("fa-times");
+                  icon.classList.add("fa-bars");
+                }
+                document.body.style.overflow = "";
+              }
+              
+              // Scroll to target with offset for navbar
+              const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 80;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+              });
             }
           }
         });
