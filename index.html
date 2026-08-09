@@ -358,7 +358,9 @@
                     icon.classList.remove("fa-times");
                     icon.classList.add("fa-bars");
                   }
+                  // Restore scrolling completely
                   document.body.style.overflow = "";
+                  document.documentElement.style.overflow = "";
                 }
                 
                 // Scroll to target with offset for navbar
@@ -367,6 +369,10 @@
                 
                 // Universal scroll compatible with all devices
                 setTimeout(function() {
+                  // Ensure scrolling is restored before scroll
+                  document.body.style.overflow = "";
+                  document.documentElement.style.overflow = "";
+                  
                   window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -414,6 +420,20 @@
 
       // Close menu when clicking outside
       document.addEventListener("click", (e) => {
+        const links = document.querySelector(".links");
+        const hamburger = document.querySelector(".hamburger");
+
+        if (
+          links.classList.contains("active") &&
+          !links.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          toggleMenu();
+        }
+      });
+
+      // Also handle touch events for mobile devices when clicking outside
+      document.addEventListener("touchstart", (e) => {
         const links = document.querySelector(".links");
         const hamburger = document.querySelector(".hamburger");
 
