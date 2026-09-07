@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://formsubmit.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; frame-src 'self' https://formsubmit.co; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
+    
+    <!-- Additional Security -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="slurp" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://formsubmit.co">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -130,22 +151,22 @@
           contact_subtitle_text:
             "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
           contact_button: "Enviar mensaje",
-          cookie_title: "Cookies",
+          cookie_title: "Política de Cookies",
           cookie_text:
-            "Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.",
-          cookie_accept: "Aceptar",
-          cookie_reject: "Rechazar",
-          cookie_settings: "Configurar",
+            "Utilizamos cookies para garantizar el funcionamiento de la web y, con tu consentimiento, analizar el uso de la página y mejorar tu experiencia. Puedes aceptar todas las cookies, rechazarlas o ver nuestra Política de Cookies.",
+          cookie_accept: "Aceptar todas",
+          cookie_reject: "Rechazar todas",
+          cookie_settings: "Ver política",
           cookie_settings_title: "Configuración de Cookies",
           cookie_essential: "Cookies Esenciales",
           cookie_essential_desc:
-            "Necesarias para el funcionamiento básico del sitio.",
+            "Necesarias para el funcionamiento básico del sitio. No se pueden desactivar.",
           cookie_analytical: "Cookies Analíticas",
           cookie_analytical_desc:
-            "Nos ayudan a mejorar el sitio analizando el uso.",
+            "Nos ayudan a mejorar el sitio analizando el uso de forma anónima.",
           cookie_functional: "Cookies de Funcionalidad",
           cookie_functional_desc:
-            "Recuerdan tus preferencias (idioma, tema, etc.).",
+            "Recuerdan tus preferencias (idioma, tema, etc.) para mejorar tu experiencia.",
           cookie_save: "Guardar preferencias",
         },
         en: {
@@ -261,13 +282,13 @@
           cookie_settings_title: "Cookie Settings",
           cookie_essential: "Essential Cookies",
           cookie_essential_desc:
-            "Necessary for the basic functioning of the site.",
+            "Necessary for the basic functioning of the site. Cannot be disabled.",
           cookie_analytical: "Analytical Cookies",
           cookie_analytical_desc:
-            "Help us improve the site by analyzing usage.",
+            "Help us improve the site by analyzing usage anonymously.",
           cookie_functional: "Functional Cookies",
           cookie_functional_desc:
-            "Remember your preferences (language, theme, etc.).",
+            "Remember your preferences (language, theme, etc.) to improve your experience.",
           cookie_save: "Save preferences",
         },
       };
@@ -1149,105 +1170,70 @@
     <div id="cookie-banner" class="cookie-banner">
       <div class="cookie-content">
         <div class="cookie-text">
-          <h4 data-lang="cookie_title">Cookies</h4>
+          <h4 data-lang="cookie_title">Política de Cookies</h4>
           <p data-lang="cookie_text">
-            Utilizamos cookies para mejorar tu experiencia. Al continuar navegando,
-            aceptas nuestra política de cookies.
+            Utilizamos cookies para garantizar el funcionamiento de la web y, con tu consentimiento, analizar el uso de la página y mejorar tu experiencia. Puedes aceptar todas las cookies, rechazarlas o ver nuestra Política de Cookies.
+            <a href="cookies.html" target="_blank" rel="noopener noreferrer">
+              Más información
+            </a>
           </p>
         </div>
         <div class="cookie-buttons">
           <button id="accept-cookies" class="cookie-btn accept">
             <i class="fa-solid fa-check"></i>
-            <span data-lang="cookie_accept">Aceptar</span>
+            <span data-lang="cookie_accept">Aceptar todas</span>
           </button>
           <button id="reject-cookies" class="cookie-btn reject">
             <i class="fa-solid fa-times"></i>
-            <span data-lang="cookie_reject">Rechazar</span>
+            <span data-lang="cookie_reject">Rechazar todas</span>
           </button>
-          <button id="cookie-settings" class="cookie-btn settings">
-            <i class="fa-solid fa-cog"></i>
-            <span data-lang="cookie_settings">Configurar</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cookie Settings Modal -->
-    <div id="cookie-modal" class="cookie-modal">
-      <div class="cookie-modal-content">
-        <div class="cookie-modal-header">
-          <h3 data-lang="cookie_settings_title">Configuración de Cookies</h3>
-          <button id="close-modal" class="close-modal">
-            <i class="fa-solid fa-times"></i>
-          </button>
-        </div>
-        <div class="cookie-modal-body">
-          <div class="cookie-option">
-            <div class="cookie-option-info">
-              <h4 data-lang="cookie_essential">Cookies Esenciales</h4>
-              <p data-lang="cookie_essential_desc">
-                Necesarias para el funcionamiento básico del sitio.
-              </p>
-            </div>
-            <label class="cookie-toggle">
-              <input type="checkbox" checked disabled />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="cookie-option">
-            <div class="cookie-option-info">
-              <h4 data-lang="cookie_analytical">Cookies Analíticas</h4>
-              <p data-lang="cookie_analytical_desc">
-                Nos ayudan a mejorar el sitio analizando el uso.
-              </p>
-            </div>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="analytical-cookies" />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="cookie-option">
-            <div class="cookie-option-info">
-              <h4 data-lang="cookie_functional">Cookies de Funcionalidad</h4>
-              <p data-lang="cookie_functional_desc">
-                Recuerdan tus preferencias (idioma, tema, etc.).
-              </p>
-            </div>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="functional-cookies" checked />
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-        <div class="cookie-modal-footer">
-          <button id="save-cookie-settings" class="cookie-btn accept">
-            <i class="fa-solid fa-save"></i>
-            <span data-lang="cookie_save">Guardar preferencias</span>
+          <button id="cookie-settings" class="cookie-btn settings" onclick="window.open('cookies.html', '_blank')">
+            <i class="fa-solid fa-file-alt"></i>
+            <span data-lang="cookie_settings">Ver política</span>
           </button>
         </div>
       </div>
     </div>
 
     <script>
-      // Cookie Consent Management
+      // Professional Cookie Consent Management with Security
       const cookieBanner = document.getElementById('cookie-banner');
       const acceptCookiesBtn = document.getElementById('accept-cookies');
       const rejectCookiesBtn = document.getElementById('reject-cookies');
-      const cookieSettingsBtn = document.getElementById('cookie-settings');
-      const cookieModal = document.getElementById('cookie-modal');
-      const closeModalBtn = document.getElementById('close-modal');
-      const saveCookieSettingsBtn = document.getElementById('save-cookie-settings');
-      const analyticalCookies = document.getElementById('analytical-cookies');
-      const functionalCookies = document.getElementById('functional-cookies');
+
+      // Secure cookie functions
+      function setSecureCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        
+        // Set secure cookie with SameSite and HttpOnly for enhanced security
+        document.cookie = name + "=" + encodeURIComponent(value) + ";" + 
+                         expires + ";path=/;SameSite=Strict;Secure";
+      }
+
+      function getSecureCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+      }
 
       // Check if user has already made a choice
       function checkCookieConsent() {
-        const consent = localStorage.getItem('cookie_consent');
+        const consent = getSecureCookie('cookie_consent');
         if (consent) {
           cookieBanner.style.display = 'none';
           applyCookiePreferences(JSON.parse(consent));
         } else {
-          cookieBanner.style.display = 'block';
+          // Show banner after a short delay
+          setTimeout(() => {
+            cookieBanner.style.display = 'block';
+          }, 1000);
         }
       }
 
@@ -1256,21 +1242,8 @@
         if (preferences.functional) {
           // Apply functional cookies (theme, language)
           const savedTheme = localStorage.getItem('theme_preference');
-          const savedLanguage = localStorage.getItem('language_preference');
-          
           if (savedTheme) {
             document.body.classList.toggle('dark-mode', savedTheme === 'dark');
-          }
-          
-          if (savedLanguage) {
-            // Apply language preference
-            const languageToggle = document.querySelector('.language-toggle');
-            if (languageToggle) {
-              const currentLang = document.documentElement.lang;
-              if (currentLang !== savedLanguage) {
-                languageToggle.click();
-              }
-            }
           }
         }
         
@@ -1280,9 +1253,14 @@
         }
       }
 
-      // Save cookie consent
+      // Save cookie consent securely
       function saveCookieConsent(preferences) {
+        // Save in localStorage for functionality
         localStorage.setItem('cookie_consent', JSON.stringify(preferences));
+        
+        // Save secure cookie for tracking
+        setSecureCookie('cookie_consent', JSON.stringify(preferences), 365);
+        
         cookieBanner.style.display = 'none';
         applyCookiePreferences(preferences);
       }
@@ -1292,7 +1270,8 @@
         const preferences = {
           essential: true,
           analytical: true,
-          functional: true
+          functional: true,
+          timestamp: new Date().toISOString()
         };
         saveCookieConsent(preferences);
       });
@@ -1302,44 +1281,10 @@
         const preferences = {
           essential: true,
           analytical: false,
-          functional: false
+          functional: false,
+          timestamp: new Date().toISOString()
         };
         saveCookieConsent(preferences);
-      });
-
-      // Open settings modal
-      cookieSettingsBtn.addEventListener('click', () => {
-        cookieModal.style.display = 'flex';
-        // Load current preferences
-        const consent = localStorage.getItem('cookie_consent');
-        if (consent) {
-          const preferences = JSON.parse(consent);
-          analyticalCookies.checked = preferences.analytical;
-          functionalCookies.checked = preferences.functional;
-        }
-      });
-
-      // Close settings modal
-      closeModalBtn.addEventListener('click', () => {
-        cookieModal.style.display = 'none';
-      });
-
-      // Save custom preferences
-      saveCookieSettingsBtn.addEventListener('click', () => {
-        const preferences = {
-          essential: true,
-          analytical: analyticalCookies.checked,
-          functional: functionalCookies.checked
-        };
-        saveCookieConsent(preferences);
-        cookieModal.style.display = 'none';
-      });
-
-      // Close modal when clicking outside
-      cookieModal.addEventListener('click', (e) => {
-        if (e.target === cookieModal) {
-          cookieModal.style.display = 'none';
-        }
       });
 
       // Initialize cookie consent on page load
