@@ -8,11 +8,7 @@
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://formsubmit.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; frame-src 'self' https://formsubmit.co; base-uri 'self'; form-action 'self' https://formsubmit.co;">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
     
     <!-- Additional Security -->
     <meta name="robots" content="index, follow">
@@ -20,14 +16,54 @@
     <meta name="slurp" content="index, follow">
     <meta name="bingbot" content="index, follow">
     
+    <!-- Mobile Web App -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <!-- DNS Prefetch for Performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://formsubmit.co">
     
-    <!-- Configuration -->
-    <script src="config.js"></script>
+    <!-- Configuration (embedded to avoid 404 error) -->
+    <script>
+      // Secure Configuration
+      const AppConfig = {
+        contact: {
+          email: (() => {
+            const encoded = "aW5mb0BldmVudG9zZWNsYXQuY29t";
+            return atob(encoded);
+          })(),
+          whatsapp: (() => {
+            const encoded = "MzQ2MDI3MTkyNjU=";
+            return atob(encoded);
+          })(),
+          instagram: "https://www.instagram.com/eventos_eclat.oficial/"
+        },
+        forms: {
+          formSubmit: {
+            endpoint: (() => {
+              const encoded = "aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2luZm9AZXZlbnRvc2VjbGF0LmNvbQ==";
+              return atob(encoded);
+            })(),
+            subject: "Nuevo mensaje del formulario de contacto Éclat",
+            nextPage: "https://eventoseclat.vercel.app/gracias.html",
+            disableCaptcha: true
+          }
+        },
+        cookies: {
+          consentVersion: "1.0",
+          expiryDays: 365,
+          secure: true,
+          sameSite: "Strict"
+        },
+        security: {
+          enableAnalytics: false,
+          enableTracking: false
+        }
+      };
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
