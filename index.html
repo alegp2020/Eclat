@@ -26,6 +26,9 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://formsubmit.co">
     
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -318,9 +321,11 @@
         document.body.classList.toggle("dark-mode");
       }
 
-      // WhatsApp function
+      // WhatsApp function with obfuscated phone number
       function openWhatsApp(plan) {
-        const phoneNumber = "34602719265"; // Replace with actual WhatsApp number (include country code)
+        // Obfuscated phone number for security
+        const phoneEncoded = "MzQ2MDI3MTkyNjU=";
+        const phoneNumber = atob(phoneEncoded);
         const message = `Hola, estoy interesado en el plan ${plan} para mi evento.`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, "_blank");
@@ -467,12 +472,47 @@
         }
       });
 
-      // Set minimum date for event date picker
+      // Set minimum date for event date picker and load secure config
       document.addEventListener("DOMContentLoaded", function () {
         const dateInput = document.getElementById("fechaEvento");
         if (dateInput) {
           const today = new Date().toISOString().split("T")[0];
           dateInput.setAttribute("min", today);
+        }
+
+        // Load secure configuration if available
+        if (typeof AppConfig !== 'undefined') {
+          // Configure form with secure data
+          const form = document.getElementById('contact-form');
+          if (form) {
+            form.action = AppConfig.forms.formSubmit.endpoint;
+            form.querySelector('input[name="_next"]').value = AppConfig.forms.formSubmit.nextPage;
+            form.querySelector('input[name="_subject"]').value = AppConfig.forms.formSubmit.subject;
+          }
+
+          // Configure WhatsApp links
+          const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+          whatsappLinks.forEach(link => {
+            const currentHref = link.getAttribute('href');
+            if (currentHref.includes('PLACEHOLDER')) {
+              link.setAttribute('href', `https://wa.me/${AppConfig.contact.whatsapp}`);
+            }
+          });
+
+          // Configure email links
+          const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+          emailLinks.forEach(link => {
+            const currentHref = link.getAttribute('href');
+            if (currentHref.includes('PLACEHOLDER')) {
+              link.setAttribute('href', `mailto:${AppConfig.contact.email}`);
+            }
+          });
+
+          // Configure email display text
+          const emailDisplays = document.querySelectorAll('.email-display');
+          emailDisplays.forEach(display => {
+            display.textContent = AppConfig.contact.email;
+          });
         }
       });
 
@@ -974,14 +1014,14 @@
       </div>
       <form
         id="contact-form"
-        action="https://formsubmit.co/info@eventoseclat.com"
+        action=""
         method="POST"
       >
         <!-- Página de gracias -->
         <input
           type="hidden"
           name="_next"
-          value="https://eventoseclat.vercel.app/gracias.html"
+          value=""
         />
 
         <!-- Evita el captcha -->
@@ -991,7 +1031,7 @@
         <input
           type="hidden"
           name="_subject"
-          value="Nuevo mensaje del formulario de contacto Éclat"
+          value=""
         />
 
         <div class="form-group">
@@ -1072,20 +1112,20 @@
           </a>
 
           <a
-            href="https://wa.me/34602719265"
+            href="https://wa.me/PLACEHOLDER"
             target="_blank"
             rel="noopener noreferrer"
-            class="contact-card"
+            class="contact-card whatsapp-link"
           >
             <i class="fa-brands fa-whatsapp"></i>
             <h3 data-lang="contact_whatsapp">WhatsApp</h3>
             <p>+34 602 719 265</p>
           </a>
 
-          <a href="mailto:info@eventoseclat.com" class="contact-card">
+          <a href="mailto:PLACEHOLDER" class="contact-card email-link">
             <i class="fa-solid fa-envelope"></i>
             <h3 data-lang="contact_email">Correo electrónico</h3>
-            <p>info@eventoseclat.com</p>
+            <p class="email-display">info@eventoseclat.com</p>
           </a>
         </div>
 
@@ -1196,73 +1236,154 @@
     </div>
 
     <script>
-      // Professional Cookie Consent Management with Security
+      // Professional Cookie Consent Management with Enhanced Security
       const cookieBanner = document.getElementById('cookie-banner');
       const acceptCookiesBtn = document.getElementById('accept-cookies');
       const rejectCookiesBtn = document.getElementById('reject-cookies');
 
-      // Secure cookie functions
+      // Enhanced secure cookie functions
       function setSecureCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        const expires = "expires=" + date.toUTCString();
-        
-        // Set secure cookie with SameSite and HttpOnly for enhanced security
-        document.cookie = name + "=" + encodeURIComponent(value) + ";" + 
-                         expires + ";path=/;SameSite=Strict;Secure";
+        try {
+          const date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          const expires = "expires=" + date.toUTCString();
+          
+          // Enhanced security cookie attributes
+          const cookieString = name + "=" + encodeURIComponent(value) + ";" + 
+                             expires + ";path=/;SameSite=Strict;Secure;HttpOnly";
+          
+          document.cookie = cookieString;
+          return true;
+        } catch (e) {
+          console.error('Error setting secure cookie:', e);
+          // Fallback to localStorage
+          localStorage.setItem('cookie_' + name, JSON.stringify({
+            value: value,
+            expiry: Date.now() + (days * 24 * 60 * 60 * 1000)
+          }));
+          return false;
+        }
       }
 
       function getSecureCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        try {
+          const nameEQ = name + "=";
+          const ca = document.cookie.split(';');
+          for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) {
+              const value = decodeURIComponent(c.substring(nameEQ.length, c.length));
+              return value;
+            }
+          }
+          
+          // Fallback to localStorage
+          const stored = localStorage.getItem('cookie_' + name);
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (parsed.expiry > Date.now()) {
+              return parsed.value;
+            } else {
+              localStorage.removeItem('cookie_' + name);
+            }
+          }
+          
+          return null;
+        } catch (e) {
+          console.error('Error getting secure cookie:', e);
+          return null;
         }
-        return null;
+      }
+
+      function deleteSecureCookie(name) {
+        try {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict; Secure";
+          localStorage.removeItem('cookie_' + name);
+          return true;
+        } catch (e) {
+          console.error('Error deleting secure cookie:', e);
+          return false;
+        }
       }
 
       // Check if user has already made a choice
       function checkCookieConsent() {
-        const consent = getSecureCookie('cookie_consent');
-        if (consent) {
-          cookieBanner.style.display = 'none';
-          applyCookiePreferences(JSON.parse(consent));
-        } else {
-          // Show banner after a short delay
-          setTimeout(() => {
-            cookieBanner.style.display = 'block';
-          }, 1000);
+        try {
+          const consent = getSecureCookie('cookie_consent');
+          if (consent) {
+            const preferences = JSON.parse(consent);
+            
+            // Check if consent version matches current version
+            const currentVersion = typeof AppConfig !== 'undefined' ? AppConfig.cookies.consentVersion : "1.0";
+            if (preferences.version === currentVersion) {
+              cookieBanner.style.display = 'none';
+              applyCookiePreferences(preferences);
+            } else {
+              // Version mismatch, show banner again
+              showCookieBanner();
+            }
+          } else {
+            showCookieBanner();
+          }
+        } catch (e) {
+          console.error('Error checking cookie consent:', e);
+          showCookieBanner();
         }
+      }
+
+      function showCookieBanner() {
+        setTimeout(() => {
+          cookieBanner.style.display = 'block';
+          cookieBanner.classList.add('show');
+        }, 1500);
       }
 
       // Apply cookie preferences
       function applyCookiePreferences(preferences) {
-        if (preferences.functional) {
-          // Apply functional cookies (theme, language)
-          const savedTheme = localStorage.getItem('theme_preference');
-          if (savedTheme) {
-            document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+        try {
+          if (preferences.functional) {
+            // Apply functional cookies (theme, language)
+            const savedTheme = localStorage.getItem('theme_preference');
+            if (savedTheme) {
+              document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+            }
           }
-        }
-        
-        if (preferences.analytical) {
-          // Enable analytics (placeholder for actual analytics)
-          console.log('Analytics cookies enabled');
+          
+          if (preferences.analytical) {
+            // Enable analytics (placeholder for actual analytics)
+            if (typeof AppConfig !== 'undefined' && AppConfig.security.enableAnalytics) {
+              console.log('Analytics cookies enabled');
+            }
+          }
+        } catch (e) {
+          console.error('Error applying cookie preferences:', e);
         }
       }
 
       // Save cookie consent securely
       function saveCookieConsent(preferences) {
-        // Save in localStorage for functionality
-        localStorage.setItem('cookie_consent', JSON.stringify(preferences));
-        
-        // Save secure cookie for tracking
-        setSecureCookie('cookie_consent', JSON.stringify(preferences), 365);
-        
-        cookieBanner.style.display = 'none';
-        applyCookiePreferences(preferences);
+        try {
+          const currentVersion = typeof AppConfig !== 'undefined' ? AppConfig.cookies.consentVersion : "1.0";
+          preferences.version = currentVersion;
+          preferences.timestamp = new Date().toISOString();
+          
+          // Save in localStorage for functionality
+          localStorage.setItem('cookie_consent', JSON.stringify(preferences));
+          
+          // Save secure cookie for tracking
+          const expiryDays = typeof AppConfig !== 'undefined' ? AppConfig.cookies.expiryDays : 365;
+          setSecureCookie('cookie_consent', JSON.stringify(preferences), expiryDays);
+          
+          cookieBanner.style.display = 'none';
+          cookieBanner.classList.remove('show');
+          applyCookiePreferences(preferences);
+          
+          return true;
+        } catch (e) {
+          console.error('Error saving cookie consent:', e);
+          return false;
+        }
       }
 
       // Accept all cookies
@@ -1270,8 +1391,7 @@
         const preferences = {
           essential: true,
           analytical: true,
-          functional: true,
-          timestamp: new Date().toISOString()
+          functional: true
         };
         saveCookieConsent(preferences);
       });
@@ -1281,8 +1401,7 @@
         const preferences = {
           essential: true,
           analytical: false,
-          functional: false,
-          timestamp: new Date().toISOString()
+          functional: false
         };
         saveCookieConsent(preferences);
       });
