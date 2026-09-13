@@ -76,6 +76,10 @@ body.dark-mode .copyright {
     color: rgba(255, 255, 255, 0.7);
 }
 
+body.dark-mode .about-section {
+    background: var(--bg-light);
+}
+
 body.dark-mode .about-content h1,
 body.dark-mode .section-title h2,
 body.dark-mode .cartas-uno h1,
@@ -91,7 +95,8 @@ body.dark-mode .section-title p,
 body.dark-mode .cartas-uno p,
 body.dark-mode .cartas-dos p,
 body.dark-mode .cartas-tres p,
-body.dark-mode .process-step p {
+body.dark-mode .process-step p,
+body.dark-mode .about-content .services-list {
     color: #E8E8E8;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
@@ -537,11 +542,13 @@ section.visible {
 /* About Section */
 .about-section {
     padding: 8rem 5%;
+    background: var(--bg-cream);
 }
 
 .about-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -550,6 +557,7 @@ section.visible {
 .about-image {
     flex: 1;
     min-width: 0;
+    display: none;
 }
 
 .about-image img {
@@ -563,18 +571,52 @@ section.visible {
 .about-content {
     flex: 1;
     min-width: 0;
+    max-width: 900px;
+    text-align: center;
 }
 
 .about-content h1 {
     font-size: 3rem;
     margin-bottom: 2rem;
     color: var(--text-dark);
+    text-align: center;
 }
 
 .about-content p {
     font-size: 1.15rem;
     line-height: 1.9;
     color: var(--text-gray);
+}
+
+.about-content .services-list {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.about-content .cta-button {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content .cta-button:hover {
+    background: var(--gold-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(200, 169, 126, 0.5);
 }
 
 /* Services Section */
@@ -1875,16 +1917,23 @@ body.dark-mode .date-group label {
         gap: 2rem;
     }
 
-    .about-image img {
-        border-radius: var(--radius-md);
-    }
-
     .about-content h1 {
         font-size: 2rem;
     }
 
     .about-content p {
         font-size: 0.95rem;
+    }
+
+    .about-content .services-list {
+        font-size: 0.9rem;
+    }
+
+    .about-content .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
     }
 
     .services-section {
@@ -2163,6 +2212,16 @@ body.dark-mode .date-group label {
 
     .about-content p {
         font-size: 0.9rem;
+    }
+
+    .about-content .services-list {
+        font-size: 0.85rem;
+    }
+
+    .about-content .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        width: 100%;
     }
 
     .services-section {
