@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://formsubmit.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; frame-src 'self' https://formsubmit.co; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+    <!-- Security note: Full security headers implemented via vercel.json -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Additional Security -->
@@ -91,10 +91,12 @@
           nav_services: "Servicios",
           nav_plans: "Planes",
           nav_contact: "Contacto",
-          hero_title: "Diseñamos eventos que cuentan tu historia",
+          hero_title: "Organización de eventos en Vigo y Galicia",
           hero_subtitle:
-            "Convertimos tus ideas en experiencias exclusivas, cuidando cada detalle para que disfrutes de un día único e irrepetible.",
-          hero_button: "Explorar",
+            "Eventos corporativos, experiencias de marca y celebraciones privadas diseñadas a medida",
+          hero_cta1: "Diseñar mi evento",
+          hero_cta2: "Ver nuestros eventos",
+          hero_value_prop: "Estrategia • Diseño • Producción • Servicios",
           about_title: "Quienes somos",
           about_text:
             "Somos un equipo apasionado por crear eventos únicos y llenos de significado. Creemos que cada celebración merece una planificación cercana, cuidada y totalmente personalizada, donde cada detalle refleje la esencia de quienes la viven. Trabajamos con profesionalidad, compromiso y transparencia para que disfrutes del proceso con total tranquilidad. Nuestro objetivo no es solo organizar un evento, sino diseñar una experiencia que recordarás toda la vida.",
@@ -127,27 +129,25 @@
           services_title: "Tipos de eventos que organizamos",
           services_text:
             "Creamos experiencias únicas para todo tipo de celebraciones.",
+          service_conventions: "Convenciones",
+          service_conventions_desc: "Congresos y convenciones empresariales",
+          service_galas: "Galas",
+          service_galas_desc: "Eventos de gala y ceremonias premiadas",
+          service_presentations: "Presentaciones",
+          service_presentations_desc: "Lanzamientos de productos y marcas",
+          service_launches: "Lanzamientos",
+          service_launches_desc: "Presentaciones y eventos de marca",
+          service_openings: "Inauguraciones",
+          service_openings_desc: "Aperturas de negocios y locales",
+          service_teambuilding: "Team Building",
+          service_teambuilding_desc: "Actividades de integración de equipos",
+          service_dinners: "Cenas de empresa",
+          service_dinners_desc: "Eventos corporativos gastronómicos",
           service_weddings: "Bodas",
           service_weddings_desc:
             "Bodas de lujo e íntimas con atención personalizada",
-          service_proposals: "Pedidas de mano",
-          service_proposals_desc: "Momentos especiales e inolvidables",
-          service_anniversaries: "Aniversarios",
-          service_anniversaries_desc: "Celebración de hitos importantes",
-          service_corporate: "Eventos corporativos",
-          service_corporate_desc: "Gala corporativa y eventos de negocios",
-          service_openings: "Aperturas de negocio",
-          service_openings_desc: "Lanzamientos e inauguraciones",
-          service_boutique: "Corporativo boutique",
-          service_boutique_desc: "Eventos exclusivos para marcas selectas",
-          service_jubilees: "Jubilaciones",
-          service_jubilees_desc: "Celebración de carreras profesionales",
-          service_communion: "Comuniones y bautizos",
-          service_communion_desc: "Eventos familiares significativos",
-          service_brands: "Marcas y productos",
-          service_brands_desc: "Presentaciones y lanzamientos",
-          service_timeline: "Línea del tiempo",
-          service_timeline_desc: "Eventos formales y ceremonias",
+          service_latino: "Eventos latinos",
+          service_latino_desc: "Celebraciones con sabor latino",
           plans_subtitle: "NUESTROS PLANES",
           plans_title: "Elige el plan perfecto para tu evento",
           plans_text:
@@ -214,10 +214,12 @@
           nav_services: "Services",
           nav_plans: "Plans",
           nav_contact: "Contact",
-          hero_title: "We design events that tell your story",
+          hero_title: "Event organization in Vigo and Galicia",
           hero_subtitle:
-            "We transform your ideas into exclusive experiences, taking care of every detail so you can enjoy a unique and unforgettable day.",
-          hero_button: "Explore",
+            "Corporate events, brand experiences and private celebrations designed to measure",
+          hero_cta1: "Design my event",
+          hero_cta2: "View our events",
+          hero_value_prop: "Strategy • Design • Production • Services",
           about_title: "Who We Are",
           about_text:
             "We are a passionate team dedicated to creating unique and meaningful events. We believe every celebration deserves close, careful, and completely personalized planning, where every detail reflects the essence of those who live it. We work with professionalism, commitment, and transparency so you can enjoy the process with complete peace of mind. Our goal is not just to organize an event, but to design an experience you will remember for a lifetime.",
@@ -250,27 +252,25 @@
           services_title: "Types of events we organize",
           services_text:
             "We create unique experiences for all types of celebrations.",
+          service_conventions: "Conventions",
+          service_conventions_desc: "Conferences and corporate conventions",
+          service_galas: "Galas",
+          service_galas_desc: "Gala events and award ceremonies",
+          service_presentations: "Presentations",
+          service_presentations_desc: "Product and brand launches",
+          service_launches: "Launches",
+          service_launches_desc: "Presentations and brand events",
+          service_openings: "Inaugurations",
+          service_openings_desc: "Business and venue openings",
+          service_teambuilding: "Team Building",
+          service_teambuilding_desc: "Team integration activities",
+          service_dinners: "Company dinners",
+          service_dinners_desc: "Corporate gastronomic events",
           service_weddings: "Weddings",
           service_weddings_desc:
             "Luxury and intimate weddings with personalized attention",
-          service_proposals: "Proposals",
-          service_proposals_desc: "Special and unforgettable moments",
-          service_anniversaries: "Anniversaries",
-          service_anniversaries_desc: "Celebration of important milestones",
-          service_corporate: "Corporate events",
-          service_corporate_desc: "Corporate galas and business events",
-          service_openings: "Business openings",
-          service_openings_desc: "Launches and inaugurations",
-          service_boutique: "Boutique corporate",
-          service_boutique_desc: "Exclusive events for select brands",
-          service_jubilees: "Jubilees",
-          service_jubilees_desc: "Celebration of professional careers",
-          service_communion: "Communions and baptisms",
-          service_communion_desc: "Meaningful family events",
-          service_brands: "Brands and products",
-          service_brands_desc: "Presentations and launches",
-          service_timeline: "Timeline",
-          service_timeline_desc: "Formal events and ceremonies",
+          service_latino: "Latin events",
+          service_latino_desc: "Celebrations with Latin flavor",
           plans_subtitle: "OUR PLANS",
           plans_title: "Choose the perfect plan for your event",
           plans_text:
@@ -615,22 +615,36 @@
       <div class="hero-overlay"></div>
       <div class="about">
         <h1 data-lang="hero_title">
-          Diseñamos eventos que cuentan tu historia
+          Organización de eventos en Vigo y Galicia
         </h1>
         <h4 data-lang="hero_subtitle">
-          Convertimos tus ideas en experiencias exclusivas, cuidando cada
-          detalle para que disfrutes de un día único e irrepetible.
+          Eventos corporativos, experiencias de marca y celebraciones privadas diseñadas a medida
         </h4>
-        <button
-          data-lang="hero_button"
-          onclick="
-            document
-              .getElementById('contact')
-              .scrollIntoView({ behavior: 'smooth' })
-          "
-        >
-          Conócenos
-        </button>
+        <div class="hero-cta-container">
+          <button
+            data-lang="hero_cta1"
+            onclick="
+              document
+                .getElementById('contact')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Diseñar mi evento
+          </button>
+          <button
+            data-lang="hero_cta2"
+            onclick="
+              document
+                .getElementById('services')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Ver nuestros eventos
+          </button>
+        </div>
+        <div class="hero-value-prop">
+          <span data-lang="hero_value_prop">Estrategia • Diseño • Producción • Servicios</span>
+        </div>
       </div>
     </section>
 
@@ -671,11 +685,11 @@
           <div class="service-number">01</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-ring"></i>
+              <i class="fa-solid fa-users"></i>
             </div>
-            <h3 data-lang="service_weddings">Bodas</h3>
-            <p data-lang="service_weddings_desc">
-              Bodas de lujo e íntimas con atención personalizada
+            <h3 data-lang="service_conventions">Convenciones</h3>
+            <p data-lang="service_conventions_desc">
+              Congresos y convenciones empresariales
             </p>
           </div>
         </div>
@@ -684,11 +698,11 @@
           <div class="service-number">02</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-star"></i>
             </div>
-            <h3 data-lang="service_proposals">Pedidas de mano</h3>
-            <p data-lang="service_proposals_desc">
-              Momentos especiales e inolvidables
+            <h3 data-lang="service_galas">Galas</h3>
+            <p data-lang="service_galas_desc">
+              Eventos de gala y ceremonias premiadas
             </p>
           </div>
         </div>
@@ -697,11 +711,11 @@
           <div class="service-number">03</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-champagne-glasses"></i>
+              <i class="fa-solid fa-microphone"></i>
             </div>
-            <h3 data-lang="service_anniversaries">Aniversarios</h3>
-            <p data-lang="service_anniversaries_desc">
-              Celebración de hitos importantes
+            <h3 data-lang="service_presentations">Presentaciones</h3>
+            <p data-lang="service_presentations_desc">
+              Lanzamientos de productos y marcas
             </p>
           </div>
         </div>
@@ -710,11 +724,11 @@
           <div class="service-number">04</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-briefcase"></i>
+              <i class="fa-solid fa-rocket"></i>
             </div>
-            <h3 data-lang="service_corporate">Eventos corporativos</h3>
-            <p data-lang="service_corporate_desc">
-              Gala corporativa y eventos de negocios
+            <h3 data-lang="service_launches">Lanzamientos</h3>
+            <p data-lang="service_launches_desc">
+              Presentaciones y eventos de marca
             </p>
           </div>
         </div>
@@ -725,9 +739,9 @@
             <div class="service-icon">
               <i class="fa-solid fa-store"></i>
             </div>
-            <h3 data-lang="service_openings">Aperturas de negocio</h3>
+            <h3 data-lang="service_openings">Inauguraciones</h3>
             <p data-lang="service_openings_desc">
-              Lanzamientos e inauguraciones
+              Aperturas de negocios y locales
             </p>
           </div>
         </div>
@@ -736,11 +750,11 @@
           <div class="service-number">06</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-crown"></i>
+              <i class="fa-solid fa-people-group"></i>
             </div>
-            <h3 data-lang="service_boutique">Corporativo boutique</h3>
-            <p data-lang="service_boutique_desc">
-              Eventos exclusivos para marcas selectas
+            <h3 data-lang="service_teambuilding">Team Building</h3>
+            <p data-lang="service_teambuilding_desc">
+              Actividades de integración de equipos
             </p>
           </div>
         </div>
@@ -749,11 +763,11 @@
           <div class="service-number">07</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-calendar-check"></i>
+              <i class="fa-solid fa-utensils"></i>
             </div>
-            <h3 data-lang="service_jubilees">Jubilaciones</h3>
-            <p data-lang="service_jubilees_desc">
-              Celebración de carreras profesionales
+            <h3 data-lang="service_dinners">Cenas de empresa</h3>
+            <p data-lang="service_dinners_desc">
+              Eventos corporativos gastronómicos
             </p>
           </div>
         </div>
@@ -762,11 +776,11 @@
           <div class="service-number">08</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-cross"></i>
+              <i class="fa-solid fa-ring"></i>
             </div>
-            <h3 data-lang="service_communion">Comuniones y bautizos</h3>
-            <p data-lang="service_communion_desc">
-              Eventos familiares significativos
+            <h3 data-lang="service_weddings">Bodas</h3>
+            <p data-lang="service_weddings_desc">
+              Bodas de lujo e íntimas con atención personalizada
             </p>
           </div>
         </div>
@@ -775,22 +789,11 @@
           <div class="service-number">09</div>
           <div class="service-content">
             <div class="service-icon">
-              <i class="fa-solid fa-ribbon"></i>
+              <i class="fa-solid fa-music"></i>
             </div>
-            <h3 data-lang="service_brands">Marcas y productos</h3>
-            <p data-lang="service_brands_desc">Presentaciones y lanzamientos</p>
-          </div>
-        </div>
-
-        <div class="service-item right">
-          <div class="service-number">10</div>
-          <div class="service-content">
-            <div class="service-icon">
-              <i class="fa-solid fa-clock"></i>
-            </div>
-            <h3 data-lang="service_timeline">Línea del tiempo</h3>
-            <p data-lang="service_timeline_desc">
-              Eventos formales y ceremonias
+            <h3 data-lang="service_latino">Eventos latinos</h3>
+            <p data-lang="service_latino_desc">
+              Celebraciones con sabor latino
             </p>
           </div>
         </div>

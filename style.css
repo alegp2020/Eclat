@@ -411,6 +411,103 @@ body.dark-mode .hamburger:hover {
     box-shadow: 0 12px 40px rgba(200, 169, 126, 0.5);
 }
 
+.hero-cta-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-cta-container button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+.hero-cta-container button:first-child {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+}
+
+.hero-cta-container button:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: var(--transition);
+}
+
+.hero-cta-container button:first-child:hover::before {
+    left: 100%;
+}
+
+.hero-cta-container button:first-child:hover {
+    background: var(--gold-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(200, 169, 126, 0.5);
+}
+
+.hero-cta-container button:last-child {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.hero-cta-container button:last-child:hover {
+    background: var(--white);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+}
+
+.hero-value-prop {
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.hero-value-prop span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Responsive styles for hero CTA */
+@media (max-width: 768px) {
+    .hero-cta-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-cta-container button {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about h4 {
+        font-size: 1.1rem;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
